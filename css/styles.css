@@ -44,13 +44,18 @@ nav {
     height: 40px;
 }
 
+.logo img {
+    max-width: 150px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+}
+
 .nav-links {
     display: flex;
     gap: 2rem;
 }
 
 .nav-links a {
-    color: white;
+    color: rgb(0, 0, 0);
     text-decoration: none;
     font-weight: 500;
     transition: opacity 0.3s;
