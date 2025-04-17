@@ -1,1 +1,171 @@
-/* */
+/* Style */
+
+:root{
+
+    --primary-blue: #065bdb;
+    --near-black: #202020;
+    --soft-gray: rgb(241, 239, 239);
+    --accent-green: #0aca5a;
+    --alert-red: #FF5252;
+    --special-purple: #680beb;
+}
+
+/* Global Styles */
+body{
+    font-family: 'Robot', sans-serif;
+    color: var(--near-black);
+    margin:0;
+    line-height: 1.6;
+}
+
+h1, h2, h3{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 642;
+}
+
+/* H1 style */
+
+header{
+    background: var (--primary-blue);
+    padding: 1rem 2rem;
+    position: fixed;
+    width:100%;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    height: 40px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: opacity 0.3s;
+}
+
+.nav-links a:hover {
+    opacity: 0.8;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, var(--primary-blue) 0%, #003A8F 100%);
+    color: white;
+    padding: 8rem 2rem 4rem;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+}
+
+.hero-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 2.5rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* CTA Buttons */
+.cta-buttons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+.btn {
+    padding: 1rem 2rem;
+    border-radius: 4px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: transform 0.2s;
+}
+
+.btn-primary {
+    background: var(--accent-green);
+    color: white;
+}
+
+.btn-secondary {
+    background: var(--special-purple);
+    color: white;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+/* Feature Cards */
+.features {
+    max-width: 1200px;
+    margin: 4rem auto;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.feature-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid #eee;
+}
+
+.feature-card h2 {
+    color: var(--primary-blue);
+    margin-top: 0;
+}
+
+.feature-card .icon {
+    margin-right: 0.5rem;
+}
+
+/* Mobile Menu */
+.hamburger {
+    display: none;
+    color: white;
+    font-size: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+    
+    .hamburger {
+        display: block;
+    }
+    
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .features {
+        grid-template-columns: 1fr;
+    }
+}
