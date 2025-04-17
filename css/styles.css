@@ -45,7 +45,7 @@ nav {
 }
 
 .logo img {
-    max-width: 150px; /* Adjust the width as needed */
+    max-width: 100px; /* Adjust the width as needed */
     height: auto; /* Maintain aspect ratio */
 }
 
@@ -112,11 +112,13 @@ nav {
 .btn-primary {
     background: var(--accent-green);
     color: white;
+    font-weight: 600;
 }
 
 .btn-secondary {
-    background: var(--special-purple);
-    color: white;
+    background: white;
+    color: rgb(58, 47, 204);
+    font-weight: 600;
 }
 
 .btn:hover {
