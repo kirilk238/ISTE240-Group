@@ -6,6 +6,18 @@
     <title>Learn About Large Language Models</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* Mural Section */
+        .mural-image {
+            width: 100%; /* Make the image responsive to the container */
+            height: auto; /* Maintain aspect ratio */
+            max-width: 300px; /* Set a maximum width to match the size of the other boxes */
+            max-height: 200px; /* Set a maximum height to match the size of the other boxes */
+            object-fit: cover; /* Ensure the image scales properly without distortion */
+            margin: 0 auto; /* Center the image horizontally */
+            display: block; /* Ensure proper alignment */
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -34,11 +46,41 @@
     </section>
 
     <section class="content-section no-background">
-        <h2>What is Artificial Intelligence?</h2>
+        <h2>Are LLM's Artificial Intelligence?</h2>
         <div class="ai-box">
             <div class="chat-gpt-prompt">
                 <button id="toggle-typing" class="btn">Start</button>
                 <p id="matrix-text" class="matrix-style"></p>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section no-background">
+    
+        <div class="interactive-cards">
+            <div class="card">
+                <div class="card-front">
+                    <h3>Contextual Understanding</h3>
+                </div>
+                <div class="card-back">
+                    <p>LLMs can understand the context of a conversation or text, allowing them to generate relevant and coherent responses.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-front">
+                    <h3>Scalability</h3>
+                </div>
+                <div class="card-back">
+                    <p>These models are trained on billions of parameters, making them capable of handling complex language tasks.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-front">
+                    <h3>Versatility</h3>
+                </div>
+                <div class="card-back">
+                    <p>LLMs can perform a wide range of tasks, including translation, summarization, question answering, and creative writing.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -55,7 +97,7 @@
         </section>
 
     <section class="content-section">
-        <h2>Core Components of AI</h2>
+        <h2>Up For A Challenge?</h2>
         <p class="puzzle-instruction">Drag and drop the components on the left to their corresponding descriptions on the right.</p>
         <div class="puzzle-container">
             <div class="puzzle-items">
@@ -76,7 +118,20 @@
         <div class="puzzle-result"></div>
     </section>
 
-
+    <!--
+    <section class="content-section">
+        <h2>Chat with GPT</h2>
+        <div class="chat-container">
+            <div id="chat-window" class="chat-window">
+                
+            </div>
+            <div class="chat-input">
+                <input type="text" id="user-input" placeholder="Type your message..." />
+                <button id="send-button">Send</button>
+            </div>
+        </div>
+    </section> 
+    -->
 
     <section class="content-section no-background">
         <h2>Historical Milestones in AI</h2>
@@ -157,38 +212,6 @@
             <div><strong>Entertainment</strong></div>
             <div>Content recommendation, game AI, virtual reality experiences.</div>
         </div>
-    </section>
-
-    <section class="content-section">
-        <h2>Understanding Large Language Models</h2>
-        <p>
-            Large Language Models (LLMs) are advanced AI systems trained on massive datasets of text to understand and generate human-like language. These models are built using deep learning techniques, particularly transformer architectures, which enable them to process and generate text with remarkable accuracy and coherence.
-        </p>
-        <h3>Key Features of LLMs</h3>
-        <ul>
-            <li><strong>Contextual Understanding:</strong> LLMs can understand the context of a conversation or text, allowing them to generate relevant and coherent responses.</li>
-            <li><strong>Scalability:</strong> These models are trained on billions of parameters, making them capable of handling complex language tasks.</li>
-            <li><strong>Versatility:</strong> LLMs can perform a wide range of tasks, including translation, summarization, question answering, and creative writing.</li>
-        </ul>
-        <h3>Applications of LLMs</h3>
-        <p>
-            LLMs are used in various domains, including:
-        </p>
-        <ul>
-            <li><strong>Customer Support:</strong> Powering chatbots and virtual assistants to provide instant responses to customer queries.</li>
-            <li><strong>Content Creation:</strong> Assisting in generating articles, blogs, and marketing copy.</li>
-            <li><strong>Education:</strong> Supporting personalized learning experiences and answering student questions.</li>
-            <li><strong>Healthcare:</strong> Summarizing medical records and assisting in clinical decision-making.</li>
-        </ul>
-        <h3>Challenges of LLMs</h3>
-        <p>
-            Despite their capabilities, LLMs face several challenges:
-        </p>
-        <ul>
-            <li><strong>Bias:</strong> LLMs can inherit biases present in their training data, leading to potentially harmful outputs.</li>
-            <li><strong>Resource Intensity:</strong> Training and deploying LLMs require significant computational resources and energy.</li>
-            <li><strong>Ethical Concerns:</strong> Misuse of LLMs for generating misinformation or malicious content is a growing concern.</li>
-        </ul>
     </section>
 
     <div id="footer-placeholder"></div>
@@ -324,5 +347,112 @@
     });
 });
 </script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const chatWindow = document.getElementById("chat-window");
+        const userInput = document.getElementById("user-input");
+        const sendButton = document.getElementById("send-button");
+
+        async function sendMessageToGPT(message) {
+            const apiKey = "YOUR_OPENAI_API_KEY"; // Replace with your OpenAI API key
+            const endpoint = "https://api.openai.com/v1/chat/completions";
+
+            const headers = {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${apiKey}`,
+            };
+
+            const body = {
+                model: "gpt-3.5-turbo",
+                messages: [{ role: "user", content: message }],
+            };
+
+            try {
+                const response = await fetch(endpoint, {
+                    method: "POST",
+                    headers: headers,
+                    body: JSON.stringify(body),
+                });
+
+                if (!response.ok) {
+                    throw new Error("Failed to fetch response from GPT API");
+                }
+
+                const data = await response.json();
+                return data.choices[0].message.content;
+            } catch (error) {
+                console.error(error);
+                return "Sorry, something went wrong. Please try again.";
+            }
+        }
+
+        async function sendMessageToHuggingFace(message) {
+            const endpoint = "https://api-inference.huggingface.co/models/gpt2";
+
+            const headers = {
+                "Content-Type": "application/json",
+            };
+
+            const body = {
+                inputs: message,
+            };
+
+            try {
+                const response = await fetch(endpoint, {
+                    method: "POST",
+                    headers: headers,
+                    body: JSON.stringify(body),
+                });
+
+                if (!response.ok) {
+                    throw new Error("Failed to fetch response from Hugging Face API");
+                }
+
+                const data = await response.json();
+                return data[0]?.generated_text || "No response received.";
+            } catch (error) {
+                console.error(error);
+                return "Sorry, something went wrong. Please try again.";
+            }
+        }
+
+        function appendMessage(content, sender) {
+            const messageElement = document.createElement("div");
+            messageElement.classList.add("chat-message", sender);
+            messageElement.textContent = content;
+            chatWindow.appendChild(messageElement);
+            chatWindow.scrollTop = chatWindow.scrollHeight; // Scroll to the bottom
+        }
+
+        sendButton.addEventListener("click", async function () {
+            const message = userInput.value.trim();
+            if (!message) return;
+
+            // Display user's message
+            appendMessage(message, "user");
+
+            // Clear input field
+            userInput.value = "";
+
+            // Send message to GPT and display the response
+            const response = await sendMessageToGPT(message);
+            appendMessage(response, "gpt");
+
+            // Optionally send message to Hugging Face and display the response
+            const hfResponse = await sendMessageToHuggingFace(message);
+            appendMessage(hfResponse, "huggingface");
+        });
+
+        userInput.addEventListener("keypress", function (e) {
+            if (e.key === "Enter") {
+                sendButton.click();
+            }
+        });
+    });
+</script>
+
 </body>
 </html>
+
+

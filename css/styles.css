@@ -883,3 +883,240 @@ nav {
 .chat-gpt-prompt .btn:hover {
     background-color: #001020;
 }
+
+/* Interactive Grid */
+.interactive-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.grid-item {
+    background: #0073e6; /* Initial light blue */
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 150px;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Gradual Blue Gradient for Boxes */
+.grid-item:nth-child(1) {
+    background: #0073e6; /* Lightest blue */
+}
+.grid-item:nth-child(2) {
+    background: #005bb5; /* Medium blue */
+}
+.grid-item:nth-child(3) {
+    background: #003f7f; /* Darkest blue */
+}
+
+/* Hidden Description */
+.grid-item::after {
+    content: attr(data-description); /* Reveal the description on hover */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 1rem;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    padding: 1rem;
+    pointer-events: none;
+}
+
+/* Hover Effect */
+.grid-item:hover {
+    background: #001f4d; /* Darker blue on hover */
+    color: transparent; /* Hide the title text */
+}
+
+.grid-item:hover::after {
+    opacity: 1; /* Reveal the description */
+}
+
+/* Chat Container */
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.chat-window {
+    width: 100%;
+    height: 300px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 1rem;
+    overflow-y: auto;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.chat-input {
+    display: flex;
+    width: 100%;
+    gap: 0.5rem;
+}
+
+.chat-input input {
+    flex: 1;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.chat-input button {
+    padding: 0.5rem 1rem;
+    background-color: #0073e6;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.chat-input button:hover {
+    background-color: #005bb5;
+}
+
+.chat-message {
+    margin-bottom: 1rem;
+}
+
+.chat-message.user {
+    text-align: right;
+    color: #0073e6;
+}
+
+.chat-message.gpt {
+    text-align: left;
+    color: #333;
+}
+
+/* Interactive Cards Section */
+.interactive-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+    padding: 1rem;
+}
+
+/* Card Container */
+.card {
+    perspective: 1000px;
+    position: relative;
+    width: 100%;
+    height: 250px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+/* Card Front and Back */
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 1rem;
+    transition: transform 0.6s ease, box-shadow 0.3s ease;
+}
+
+/* Card Front */
+.card-front {
+    background: linear-gradient(135deg, #0073e6, #005bb5);
+    color: #003366; /* Changed text color to blue */
+    font-size: 1.5rem;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-image: url('images/contextual.jpg'); /* Example background image */
+    background-size: cover;
+    background-position: center;
+}
+
+/* Card Back */
+.card-back {
+    background: #f9f9f9;
+    color: #333;
+    transform: rotateY(180deg);
+    font-size: 1rem;
+    font-weight: normal;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: 2px solid #0073e6;
+}
+
+/* Hover Flip Effect */
+.card:hover .card-front {
+    transform: rotateY(180deg);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.card:hover .card-back {
+    transform: rotateY(0);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Glow Effect */
+.card:hover {
+    box-shadow: 0 0 20px rgba(0, 115, 230, 0.8);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .card {
+        height: 200px;
+    }
+
+    .card-front,
+    .card-back {
+        font-size: 1.2rem;
+    }
+}
+
+/* Mural Section */
+
+.mural-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.mural {
+    flex: 1;
+    text-align: center;
+    font-size: 0.2rem;
+    padding: 1rem;
+    background: var(--soft-gray);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
