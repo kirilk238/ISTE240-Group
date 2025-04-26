@@ -470,3 +470,50 @@ nav {
     font-size: 0.8rem;
     color: #aaa;
 }
+
+/* Grid Layout */
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* Two columns: title and description */
+    gap: 1rem 2rem; /* Row and column spacing */
+    margin: 2rem 0;
+}
+
+.grid div {
+    padding: 0.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: var(--near-black); /* Default text color */
+}
+
+/* Gradient Colors for Grid Boxes */
+.grid div:nth-child(2n-1) { /* Title boxes */
+    color: white; /* Ensure text is white for dark backgrounds */
+    font-weight: bold;
+}
+
+.grid div:nth-child(1) {
+    background: #003366; /* Dark blue */
+}
+
+.grid div:nth-child(3) {
+    background: #004080; /* Slightly lighter blue */
+}
+
+.grid div:nth-child(5) {
+    background: #0059b3; /* Medium blue */
+}
+
+.grid div:nth-child(7) {
+    background: #0073e6; /* Light blue */
+}
+
+.grid div:nth-child(9) {
+    background: #3399ff; /* Very light blue */
+}
+
+/* Description boxes */
+.grid div:nth-child(2n) {
+    background: #f0f8ff; /* Light background for descriptions */
+    color: var(--near-black); /* Dark text for readability */
+}
