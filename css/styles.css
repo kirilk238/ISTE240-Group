@@ -23,13 +23,14 @@ h1, h2, h3{
     font-weight: 642;
 }
 
-/* H1 style */
-
-header{
-    background: var (--primary-blue);
+/* Header */
+header {
+    background: white;
     padding: 1rem 2rem;
     position: fixed;
-    width:100%;
+    width: 100%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
 }
 
 nav {
@@ -40,28 +41,39 @@ nav {
     margin: 0 auto;
 }
 
+/* Logo */
 .logo {
     height: 40px;
 }
 
 .logo img {
-    max-width: 100px; /* Adjust the width as needed */
-    height: auto; /* Maintain aspect ratio */
+    max-width: 120px; /* Adjust the size of the logo */
+    height: auto;
 }
 
+/* Navigation Links */
 .nav-links {
     display: flex;
-    gap: 2rem;
+    gap: 2rem; /* Add spacing between menu items */
+    list-style: none; /* Remove bullet points */
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
+.nav-links li {
+    display: inline-block;
 }
 
 .nav-links a {
-    color: rgb(0, 0, 0);
+    color: var(--primary-blue);
     text-decoration: none;
     font-weight: 500;
-    transition: opacity 0.3s;
+    transition: color 0.3s, opacity 0.3s;
 }
 
 .nav-links a:hover {
+    color: var(--accent-green);
     opacity: 0.8;
 }
 
@@ -152,18 +164,33 @@ nav {
     margin-right: 0.5rem;
 }
 
-/* Mobile Menu */
+/* Hamburger Menu (Mobile) */
 .hamburger {
     display: none;
-    color: white;
+    color: var(--primary-blue);
     font-size: 1.5rem;
 }
 
+/* Mobile Menu Styles */
 @media (max-width: 768px) {
     .nav-links {
         display: none;
+        flex-direction: column;
+        background: white;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 999;
     }
-    
+
+    .nav-links a {
+        padding: 1rem;
+        text-align: center;
+        border-bottom: 1px solid #eee;
+    }
+
     .hamburger {
         display: block;
     }
@@ -175,4 +202,54 @@ nav {
     .features {
         grid-template-columns: 1fr;
     }
+}
+
+/* Add this CSS rule to center the header */
+.content-section h2 {
+    text-align: center;
+}
+
+/* Content Section */
+.content-section {
+    max-width: 1200px;
+    margin: 4rem auto;
+    padding: 2rem;
+    background: var(--soft-gray);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.content-section .columns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    align-items: center;
+}
+
+.content-section .text-content {
+    flex: 1;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.content-section .text-content ul {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+    list-style-type: disc;
+}
+
+.content-section .text-content ul li {
+    margin-bottom: 0.5rem;
+}
+
+.content-section .visual-content {
+    flex: 1;
+    text-align: center;
+}
+
+.content-section .visual-content .responsive-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }

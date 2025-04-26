@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-
-        <meta charset = "UTF-8">
-        <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
-        <title> LLM Survival Guide </title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>LLM Survival Guide</title>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Roboto&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="css/styles.css">
     </head>
@@ -12,19 +11,15 @@
     <body>
        <header>
         <nav>
-            <div class="logo">
-                <a href="index.html"><img src="images/logo.png" alt="Logo"></a>
-            </div>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="about.php">About</a></li>
-                <li><a href="resources.php">Resources</a></li>
-                <li><a href="contact.php">Contact</a></li>
+                <li><a href="about.php">Learn</a></li>
+                <li><a href="resources.php">Demos</a></li>
+                <li><a href="contact.php">Ethics</a></li>
+                <li><a href="quiz.php">Quiz</a></li>
             </ul>
-          
         </nav>
        </header>
-       <h1>Welcome to the LLM Survival Guide</h1>
 
        <section class="hero">
         <div class="hero-content">
@@ -33,10 +28,81 @@
             Your comprehensive guide to understanding, implementing, and ethically using LLMs – designed for students, developers, and educators.
           </p>
           <div class="cta-buttons">
-            <a href="#" class="btn btn-primary">Start Learning</a>
-            <a href="#" class="btn btn-secondary">Try Demos</a>
+            <a href="about.php" class="btn btn-primary">Start Learning</a>
+            <a href="resources.php" class="btn btn-secondary">Try Demos</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="features">
+        <div class="feature-card">
+          <h2>LLM Fundamentals</h2>
+          <p>Understand tokenization, transformer architectures, and attention mechanisms through interactive diagrams and step-by-step explainers.</p>
+          <a href="about.php#fundamentals" class="btn btn-primary">Explore Basics</a>
+        </div>
+
+        <div class="feature-card">
+          <h2>Hands-On Labs</h2>
+          <p>Experiment with live demos including chatbot builders, API integrations, and bias detection scenarios.</p>
+          <a href="resources.php" class="btn btn-primary">View Demos</a>
+        </div>
+
+        <div class="feature-card">
+          <h2>Ethical Framework</h2>
+          <p>Learn to identify and mitigate risks through interactive case studies and responsible AI checklists.</p>
+          <a href="contact.php" class="btn btn-primary">Explore Ethics</a>
+        </div>
+      </section>
+
+      <section class="content-section">
+        <h2>What Are LLMs?</h2>
+        <div class="columns">
+          <div class="text-content">
+            <p>Large Language Models (LLMs) are AI systems trained on vast text datasets to understand and generate human-like text. Our guide breaks down:</p>
+            <ul>
+              <li>Evolution from early NLP to transformer models</li>
+              <li>Key components like tokenization and attention</li>
+              <li>Practical applications across industries</li>
+            </ul>
+            <a href="about.php" class="btn btn-secondary">Full Explanation →</a>
+          </div>
+          <div class="visual-content">
+            <img src="images/transformer-diagram.png" alt="Transformer Architecture Diagram" class="responsive-image">
+          </div>
+        </div>
+      </section>
+
+      <section class="use-cases">
+        <h2>Real-World Applications</h2>
+        <div class="case-grid">
+          <div class="case-card">
+            <h3>Chatbot Development</h3>
+            <p>Build conversational AI using Python and API integrations</p>
+            <a href="resources.php#chatbot" class="btn btn-primary">View Template</a>
+          </div>
+          <div class="case-card">
+            <h3>Text Summarization</h3>
+            <p>Learn extraction vs. abstraction techniques with live examples</p>
+            <a href="resources.php#summarization" class="btn btn-primary">Try Demo</a>
+          </div>
+          <div class="case-card">
+            <h3>Bias Detection</h3>
+            <p>Interactive exercise to identify and correct model biases</p>
+            <a href="resources.php#bias" class="btn btn-primary">Start Challenge</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="knowledge-check">
+        <div class="check-content">
+          <h2>Test Your Knowledge</h2>
+          <p>Try our interactive quiz to reinforce key concepts about LLM architecture and ethical considerations</p>
+          <div class="cta-buttons">
+            <a href="quiz.php" class="btn btn-primary">Start Quiz</a>
+            <a href="about.php#glossary" class="btn btn-secondary">Review Glossary</a>
           </div>
         </div>
       </section>
 
     </body>
+</html>
