@@ -161,27 +161,34 @@ nav {
     gap: 2rem;
 }
 
+/* Feature Card */
 .feature-card {
-    background: white;
+    background: var(--soft-gray);
     padding: 2rem;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border: 1px solid #eee;
-     transition: transform 0.3s, box-shadow 0.3s; /* Add transition for smooth hover effect */
-}
-
-.feature-card:hover {
-    transform: translateY(-5px); /* Move the card slightly upward on hover */
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Add a stronger shadow on hover */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1rem;
 }
 
 .feature-card h2 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
     color: var(--primary-blue);
-    margin-top: 0;
 }
 
-.feature-card .icon {
-    margin-right: 0.5rem;
+.feature-card p {
+    flex-grow: 1; /* Push the button to the bottom */
+    margin-bottom: 1rem;
+    color: var(--near-black);
+}
+
+.feature-card a {
+    align-self: flex-start; /* Align the button to the left */
+    margin-top: auto; /* Push the button to the bottom of the card */
+    margin-bottom: 1rem; /* Add equal spacing below the button */
 }
 
 /* Hamburger Menu (Mobile) */
@@ -694,4 +701,162 @@ nav {
     color: var(--near-black);
     margin-bottom: 1.5rem;
     font-style: italic;
+}
+
+/* Diagram Container */
+.diagram-container {
+    text-align: center;
+    margin-top: 1rem; /* Small margin above the image */
+}
+
+.ai-diagram {
+    max-width: 100%; /* Scale down the image to 80% of the container width */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Diagram Description */
+.diagram-description {
+    margin-top: 1rem;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--near-black);
+    text-align: center;
+}
+
+/* AI Box */
+.ai-box {
+    background: var(--soft-gray); /* Light gray background */
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 1rem;
+    text-align: center;
+}
+
+/* AI Grid */
+.ai-grid {
+    display: flex; /* Use flexbox for carousel effect */
+    justify-content: center;
+    align-items: center;
+    perspective: 800px; /* Reduce perspective for a less dramatic 3D effect */
+    gap: 2rem; /* Spacing between items */
+    margin-top: 2rem;
+}
+
+.ai-grid-item {
+    background: #0073e6; /* Blue background for grid items */
+    color: white; /* White text for readability */
+    width: 250px; /* Larger width */
+    height: 250px; /* Larger height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transform-origin: center; /* Set the origin for rotation */
+    font-size: 1.5rem;
+    font-weight: bold;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: carousel 25s infinite linear; /* Default slower rotation */
+}
+
+/* Slower Rotation for Leftmost Item */
+.ai-grid-item:nth-child(1) {
+    animation-duration: 30s; /* Slowest rotation */
+}
+
+/* Slightly Faster Rotation for Second Item */
+.ai-grid-item:nth-child(2) {
+    animation-duration: 27s; /* Slightly faster */
+}
+
+/* Faster Rotation for Third Item */
+.ai-grid-item:nth-child(3) {
+    animation-duration: 24s; /* Faster */
+}
+
+/* Fastest Rotation for Fourth Item */
+.ai-grid-item:nth-child(4) {
+    animation-duration: 22s; /* Fastest */
+}
+
+/* Hover Effect */
+.ai-grid-item:hover {
+    animation-play-state: paused; /* Pause the carousel animation */
+    transform: scale(1.2); /* Zoom in */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3); /* Add a stronger shadow */
+}
+
+/* Full Description on Hover */
+.ai-grid-item::after {
+    content: attr(data-description); /* Display the full description */
+    position: absolute;
+    bottom: -3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8); /* Dark background for the description */
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+.ai-grid-item:hover::after {
+    opacity: 1; /* Show the description on hover */
+}
+
+/* 3D Carousel Animation */
+@keyframes carousel {
+    0% {
+        transform: rotateY(0deg) translateZ(150px); /* Start position */
+    }
+    25% {
+        transform: rotateY(90deg) translateZ(150px); /* Quarter turn */
+    }
+    50% {
+        transform: rotateY(180deg) translateZ(150px); /* Half turn */
+    }
+    75% {
+        transform: rotateY(270deg) translateZ(150px); /* Three-quarter turn */
+    }
+    100% {
+        transform: rotateY(360deg) translateZ(150px); /* Full turn */
+    }
+}
+
+/* Matrix Text Style */
+.matrix-style {
+    font-family: 'Courier New', Courier, monospace; /* Monospace font for Matrix effect */
+    color: #0073e6; /* Bright blue text */
+    font-size: 1.5rem;
+    white-space: normal; /* Allow text to wrap to the next line */
+    overflow: visible; /* Ensure the text is not cut off */
+    border-right: 2px solid #0073e6; /* Blinking cursor effect */
+    animation: blink-cursor 0.7s steps(2, start) infinite; /* Cursor blinking */
+    word-wrap: break-word; /* Break long words if necessary */
+    text-align: center; /* Center the text */
+    margin: 0 auto; /* Center the paragraph within its container */
+    max-width: 90%; /* Ensure the paragraph fits within the container */
+}
+
+/* Blinking Cursor Animation */
+@keyframes blink-cursor {
+    0% {
+        border-right-color: #0073e6;
+    }
+    50% {
+        border-right-color: transparent;
+    }
+    100% {
+        border-right-color: #0073e6;
+    }
 }

@@ -35,16 +35,21 @@
 
     <section class="content-section no-background">
         <h2>What is Artificial Intelligence?</h2>
-        <p>
-            Artificial Intelligence refers to the simulation of human intelligence in machines that are programmed to think, learn, and make decisions.
-        </p>
-        <ul>
-            <li><strong>Learning:</strong> Ability to improve performance over time.</li>
-            <li><strong>Reasoning:</strong> Solving problems and making decisions.</li>
-            <li><strong>Perception:</strong> Interpreting sensory data (e.g., images, sounds).</li>
-            <li><strong>Interaction:</strong> Communicating with humans and other systems.</li>
-        </ul>
+        <div class="ai-box">
+            <p id="matrix-text" class="matrix-style"></p>
+        </div>
     </section>
+
+        <!-- Rotating Boxes Section -->
+        <section class="content-section">
+            <h2>Core Components of AI</h2>
+            <div class="ai-grid">
+                <div class="ai-grid-item" data-description="Ability to improve performance over time.">Learning</div>
+                <div class="ai-grid-item" data-description="Solving problems and making decisions.">Reasoning</div>
+                <div class="ai-grid-item" data-description="Interpreting sensory data (e.g., images, sounds).">Perception</div>
+                <div class="ai-grid-item" data-description="Communicating with humans and other systems.">Interaction</div>
+            </div>
+        </section>
 
     <section class="content-section">
         <h2>Core Components of AI</h2>
@@ -67,6 +72,8 @@
         </div>
         <div class="puzzle-result"></div>
     </section>
+
+
 
     <section class="content-section no-background">
         <h2>Historical Milestones in AI</h2>
@@ -149,6 +156,38 @@
         </div>
     </section>
 
+    <section class="content-section">
+        <h2>Understanding Large Language Models</h2>
+        <p>
+            Large Language Models (LLMs) are advanced AI systems trained on massive datasets of text to understand and generate human-like language. These models are built using deep learning techniques, particularly transformer architectures, which enable them to process and generate text with remarkable accuracy and coherence.
+        </p>
+        <h3>Key Features of LLMs</h3>
+        <ul>
+            <li><strong>Contextual Understanding:</strong> LLMs can understand the context of a conversation or text, allowing them to generate relevant and coherent responses.</li>
+            <li><strong>Scalability:</strong> These models are trained on billions of parameters, making them capable of handling complex language tasks.</li>
+            <li><strong>Versatility:</strong> LLMs can perform a wide range of tasks, including translation, summarization, question answering, and creative writing.</li>
+        </ul>
+        <h3>Applications of LLMs</h3>
+        <p>
+            LLMs are used in various domains, including:
+        </p>
+        <ul>
+            <li><strong>Customer Support:</strong> Powering chatbots and virtual assistants to provide instant responses to customer queries.</li>
+            <li><strong>Content Creation:</strong> Assisting in generating articles, blogs, and marketing copy.</li>
+            <li><strong>Education:</strong> Supporting personalized learning experiences and answering student questions.</li>
+            <li><strong>Healthcare:</strong> Summarizing medical records and assisting in clinical decision-making.</li>
+        </ul>
+        <h3>Challenges of LLMs</h3>
+        <p>
+            Despite their capabilities, LLMs face several challenges:
+        </p>
+        <ul>
+            <li><strong>Bias:</strong> LLMs can inherit biases present in their training data, leading to potentially harmful outputs.</li>
+            <li><strong>Resource Intensity:</strong> Training and deploying LLMs require significant computational resources and energy.</li>
+            <li><strong>Ethical Concerns:</strong> Misuse of LLMs for generating misinformation or malicious content is a growing concern.</li>
+        </ul>
+    </section>
+
     <div id="footer-placeholder"></div>
     <script>
         fetch('footer.html')
@@ -218,6 +257,25 @@
             // Toggle the "active" class on the clicked milestone
             milestone.classList.toggle('active');
         });
+    });
+</script>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const text = "Artificial Intelligence refers to the simulation of human intelligence in machines that are programmed to think, learn, and make decisions.";
+        const matrixTextElement = document.getElementById("matrix-text");
+        let index = 0;
+    
+        function typeEffect() {
+            if (index < text.length) {
+                matrixTextElement.textContent += text.charAt(index);
+                index++;
+                setTimeout(typeEffect, 70); // Adjust typing speed (50ms per letter)
+            }
+        }
+    
+        typeEffect();
     });
 </script>
 </body>
