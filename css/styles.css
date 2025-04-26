@@ -531,45 +531,52 @@ nav {
 .puzzle-container {
     display: flex;
     justify-content: space-between;
-    gap: 2rem;
+    gap: 2rem; /* Equal spacing between left and right columns */
     margin-top: 2rem;
 }
 
 .puzzle-items, .puzzle-targets {
-    flex: 1;
+    flex: 1; /* Ensure both columns take up equal space */
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 1rem; /* Equal spacing between cards */
 }
 
 /* Draggable Items (Left Cards) */
 .draggable {
-    padding: 1rem;
     background: #0073e6; /* Blue background for draggable items */
     color: white; /* White text for readability */
     border-radius: 8px;
     text-align: center;
-    min-height: 60px; /* Ensure consistent height */
+    min-height: 90px; /* Ensure consistent height */
     display: flex;
     align-items: center;
     justify-content: center;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s, background-color 0.2s;
-    margin-bottom: 0.25rem; /* Add bottom margin for spacing */
+    transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition for hover effect */
+    margin-bottom: 1rem; /* Add spacing between cards */
+    cursor: grab;
+    width: 100%; /* Ensure consistent width */
+    box-sizing: border-box; /* Include padding and border in width */
 }
 
+/* Droppable Items (Right Cards) */
+/* aligning this took me 1 hour :) :) :) :( */
 .droppable {
+    margin-bottom: 1rem;
     padding: 1rem;
     background: #f0f8ff; /* Light blue background for droppable targets */
     color: var(--near-black); /* Dark text for readability */
     border-radius: 8px;
     text-align: center;
-    min-height: 60px; /* Ensure consistent height */
+    min-height: 90px; /* Match the height of draggable items */
     display: flex;
     align-items: center;
     justify-content: center;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border: 2px dashed #0073e6;
+    width: 100%; /* Ensure consistent width */
+    box-sizing: border-box; /* Include padding and border in width */
 }
 
 .droppable.correct {
