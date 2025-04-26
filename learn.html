@@ -36,7 +36,10 @@
     <section class="content-section no-background">
         <h2>What is Artificial Intelligence?</h2>
         <div class="ai-box">
-            <p id="matrix-text" class="matrix-style"></p>
+            <div class="chat-gpt-prompt">
+                <button id="toggle-typing" class="btn">Start</button>
+                <p id="matrix-text" class="matrix-style"></p>
+            </div>
         </div>
     </section>
 
@@ -262,21 +265,64 @@
 
 
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const text = "Artificial Intelligence refers to the simulation of human intelligence in machines that are programmed to think, learn, and make decisions.";
-        const matrixTextElement = document.getElementById("matrix-text");
-        let index = 0;
-    
-        function typeEffect() {
-            if (index < text.length) {
-                matrixTextElement.textContent += text.charAt(index);
-                index++;
-                setTimeout(typeEffect, 70); // Adjust typing speed (50ms per letter)
+ document.addEventListener("DOMContentLoaded", function () {
+    const text = "Artificial Intelligence (AI) refers to the simulation of human intelligence in machines that are programmed to think, learn, and make decisions. These systems are designed to mimic cognitive functions such as reasoning, problem-solving, perception, understanding language, and even adapting to new information. AI can range from simple task automation, like filtering spam emails, to complex processes like driving autonomous vehicles or providing real-time language translation. It relies on various techniques, including machine learning, deep learning, and natural language processing, to improve over time through experience. By analyzing vast amounts of data, identifying patterns, and making informed decisions, AI systems have the potential to transform industries, enhance human capabilities, and solve problems that were once thought to be impossible. As AI technology continues to evolve, it raises important questions about ethics, job displacement, and the future relationship between humans and intelligent machines.";
+    const matrixTextElement = document.getElementById("matrix-text");
+    const toggleButton = document.getElementById("toggle-typing");
+
+    if (!matrixTextElement || !toggleButton) {
+        console.error("Required elements not found in the DOM.");
+        return;
+    }
+
+    let index = 0;
+    let typingInterval = null;
+    const targetPhrase = "intelligent machines";
+    const targetIndex = text.indexOf(targetPhrase);
+
+    function typeEffect() {
+        if (index < text.length) {
+            const baseBlue = 230;
+            const maxShadeStep = 150;
+            const shadeStep = Math.floor((index / text.length) * maxShadeStep);
+            const currentBlue = Math.max(baseBlue - shadeStep, 0);
+            const colorHex = `#0073${currentBlue.toString(16).padStart(2, '0')}`;
+
+            const span = document.createElement("span");
+
+            // Check if current character is within the target phrase range
+            if (index >= targetIndex && index < targetIndex + targetPhrase.length) {
+                span.style.color = "red";
+                span.style.fontStyle = "italic";
+            } else {
+                span.style.color = colorHex;
             }
+
+            span.textContent = text.charAt(index);
+            matrixTextElement.appendChild(span);
+
+            index++;
+        } else {
+            clearInterval(typingInterval);
+            toggleButton.textContent = "Start";
         }
-    
-        typeEffect();
+    }
+
+    toggleButton.addEventListener("click", function () {
+        if (typingInterval) {
+            clearInterval(typingInterval);
+            typingInterval = null;
+            toggleButton.textContent = "Start";
+        } else {
+            if (index === text.length) {
+                index = 0;
+                matrixTextElement.textContent = "";
+            }
+            typingInterval = setInterval(typeEffect, 50);
+            toggleButton.textContent = "Stop";
+        }
     });
+});
 </script>
 </body>
 </html>

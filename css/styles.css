@@ -91,6 +91,7 @@ nav {
 /* Spline Background */
 .spline-background {
     position: absolute;
+    filter: blur(2px); /* Apply a slight blur to the video to soften jagged edges from compression*/
     top: 0;
     left: 0;
     width: 100%;
@@ -410,6 +411,12 @@ nav {
     height: 100%;
     object-fit: cover; /* Ensures the video covers the entire section */
     z-index: 0; /* Place the video behind the content */
+    filter: blur(10px); /* Apply a slight blur to the video */
+    transition: filter 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.learn-hero-video:hover {
+    filter: blur(0); /* Remove blur on hover */
 }
 
 /* Learn Hero Content */
@@ -859,4 +866,28 @@ nav {
     100% {
         border-right-color: #0073e6;
     }
+}
+
+/* Chat GPT Prompt Style */
+.chat-gpt-prompt {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.chat-gpt-prompt .btn {
+    background-color: #0073e6;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 3s ease;
+}
+
+.chat-gpt-prompt .btn:hover {
+    background-color: #001020;
 }
