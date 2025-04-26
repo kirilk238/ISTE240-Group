@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn About Large Language Models</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="learn.html">Learn</a></li>
+                <li><a href="demos.html">Demos</a></li>
+                <li><a href="ethics.html">Ethics</a></li>
+                <li><a href="quiz.html">Quiz</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="learn-hero">
+        <video autoplay muted loop class="learn-hero-video">
+            <source src="videos/network.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="learn-hero-content">
+            <h1>Learn About Large Language Models</h1>
+            <p class="learn-hero-subtitle">
+                Explore the architecture, applications, and ethical considerations of LLMs through engaging content and resources.
+            </p>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <h2>Introduction to LLMs</h2>
+        <p>
+            Large Language Models (LLMs) are advanced AI systems trained on massive datasets to understand and generate human-like text. They are built using transformer architectures and have revolutionized natural language processing (NLP).
+        </p>
+    </section>
+
+    <div id="footer-placeholder"></div>
+    <script>
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('footer-placeholder').innerHTML = data);
+    </script>
+</body>
+</html>
