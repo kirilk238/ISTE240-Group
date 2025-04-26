@@ -23,14 +23,23 @@
 
        <section class="hero">
         <div class="hero-content">
-          <h1>Master Large Language Models</h1>
-          <p class="hero-subtitle">
-            Your comprehensive guide to understanding, implementing, and ethically using LLMs – designed for students, developers, and educators.
-          </p>
-          <div class="cta-buttons">
+            <h1>Master Large Language Models</h1>
+            <p class="hero-subtitle">
+                Your comprehensive guide to understanding, implementing, and ethically using LLMs – designed for students, developers, and educators.
+            </p>
+        </div>
+        <div class="spline-background">
+            <iframe
+                src="https://my.spline.design/clonercubebinarycopy-RsGZBVEi6sjpJYwB3NpcOG3W/"
+                frameborder="0"
+                width="100%"
+                height="100%"
+                allowfullscreen
+            ></iframe>
+        </div>
+        <div class="cta-buttons">
             <a href="about.php" class="btn btn-primary">Start Learning</a>
             <a href="resources.php" class="btn btn-secondary">Try Demos</a>
-          </div>
         </div>
       </section>
 
@@ -99,16 +108,18 @@
         </div>
       </section>
 
-      <section class="knowledge-check">
-        <div class="check-content">
-          <h2>Test Your Knowledge</h2>
-          <p>Try our interactive quiz to reinforce key concepts about LLM architecture and ethical considerations</p>
-          <div class="cta-buttons">
-            <a href="quiz.php" class="btn btn-primary">Start Quiz</a>
-            <a href="about.php#glossary" class="btn btn-secondary">Review Glossary</a>
-          </div>
-        </div>
+      <section class="quiz-section">
+        <h2>Test Your Knowledge</h2>
+        <p>Challenge yourself with our interactive quiz and see how much you've learned about Large Language Models.</p>
+        <a href="quiz.php" class="btn btn-primary">Take the Quiz</a>
       </section>
+
+      <div id="footer-placeholder"></div>
+      <script>
+          fetch('footer.html')
+              .then(response => response.text())
+              .then(data => document.getElementById('footer-placeholder').innerHTML = data);
+      </script>
 
     </body>
 </html>
