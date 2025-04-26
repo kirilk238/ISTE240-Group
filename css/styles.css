@@ -253,3 +253,64 @@ nav {
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
+
+/* Use Cases Section */
+.use-cases {
+    max-width: 1200px;
+    margin: 4rem auto;
+    padding: 2rem;
+    text-align: center;
+}
+
+.use-cases h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--primary-blue);
+}
+
+.case-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.case-card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: left;
+}
+
+.case-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.case-card-header {
+    background: var(--primary-blue);
+    color: white;
+    padding: 1rem;
+    border-radius: 8px 8px 0 0;
+    margin: -2rem -2rem 1rem -2rem;
+    text-align: center;
+}
+
+.case-card h3 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.case-card p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 1rem 0;
+    color: var(--near-black);
+}
+
+.case-card .btn {
+    display: inline-block;
+    margin-top: 1rem;
+    text-align: center;
+}
