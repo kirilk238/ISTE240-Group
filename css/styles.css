@@ -733,14 +733,6 @@ nav {
 }
 
 /* AI Box */
-.ai-box {
-    background: var(--soft-gray); /* Light gray background */
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin-top: 1rem;
-    text-align: center;
-}
 
 /* AI Grid */
 .ai-grid {
