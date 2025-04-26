@@ -33,7 +33,7 @@
         </div>
     </section>
 
-    <section class="content-section">
+    <section class="content-section no-background">
         <h2>What is Artificial Intelligence?</h2>
         <p>
             Artificial Intelligence refers to the simulation of human intelligence in machines that are programmed to think, learn, and make decisions.
@@ -48,30 +48,73 @@
 
     <section class="content-section">
         <h2>Core Components of AI</h2>
-        <div class="grid">
-            <div><strong>Machine Learning</strong></div>
-            <div>Algorithms that allow machines to learn from data and improve over time.</div>
-            <div><strong>Neural Networks</strong></div>
-            <div>Computational models inspired by the human brain, used for pattern recognition.</div>
-            <div><strong>Natural Language Processing (NLP)</strong></div>
-            <div>Enables machines to understand and generate human language.</div>
-            <div><strong>Computer Vision</strong></div>
-            <div>Allows machines to interpret and analyze visual data from the world.</div>
-            <div><strong>Robotics</strong></div>
-            <div>Combines AI with physical systems to perform tasks autonomously.</div>
+        <p class="puzzle-instruction">Drag and drop the components on the left to their corresponding descriptions on the right.</p>
+        <div class="puzzle-container">
+            <div class="puzzle-items">
+                <div class="draggable" draggable="true" data-match="ml">Machine Learning</div>
+                <div class="draggable" draggable="true" data-match="nn">Neural Networks</div>
+                <div class="draggable" draggable="true" data-match="nlp">Natural Language Processing</div>
+                <div class="draggable" draggable="true" data-match="cv">Computer Vision</div>
+                <div class="draggable" draggable="true" data-match="robotics">Robotics</div>
+            </div>
+            <div class="puzzle-targets">
+                <div class="droppable" data-match="ml">Algorithms that allow machines to learn from data and improve over time.</div>
+                <div class="droppable" data-match="nn">Computational models inspired by the human brain, used for pattern recognition.</div>
+                <div class="droppable" data-match="nlp">Enables machines to understand and generate human language.</div>
+                <div class="droppable" data-match="cv">Allows machines to interpret and analyze visual data from the world.</div>
+                <div class="droppable" data-match="robotics">Combines AI with physical systems to perform tasks autonomously.</div>
+            </div>
         </div>
+        <div class="puzzle-result"></div>
     </section>
 
-    <section class="content-section">
+    <section class="content-section no-background">
         <h2>Historical Milestones in AI</h2>
-        <ul>
-            <li><strong>1950s:</strong> Alan Turing proposes the Turing Test to evaluate machine intelligence.</li>
-            <li><strong>1960s:</strong> Development of early AI programs like ELIZA (natural language processing).</li>
-            <li><strong>1980s:</strong> Introduction of expert systems and knowledge-based AI.</li>
-            <li><strong>1990s:</strong> Emergence of machine learning and data-driven AI.</li>
-            <li><strong>2010s:</strong> Breakthroughs in deep learning and neural networks.</li>
-            <li><strong>2020s:</strong> Widespread adoption of AI in industries like healthcare, finance, and transportation.</li>
-        </ul>
+        <p class="milestone-instruction">Click on a milestone to expand and learn more about it.</p>
+        <div class="milestones">
+            <div class="milestone" data-id="1950s">
+                <h3>1950s</h3>
+                <p>Alan Turing proposes the Turing Test to evaluate machine intelligence.</p>
+                <div class="milestone-details">
+                    <p>The Turing Test was introduced by Alan Turing as a way to determine whether a machine can exhibit intelligent behavior indistinguishable from that of a human. This concept laid the foundation for modern AI research.</p>
+                </div>
+            </div>
+            <div class="milestone" data-id="1960s">
+                <h3>1960s</h3>
+                <p>Development of early AI programs like ELIZA (natural language processing).</p>
+                <div class="milestone-details">
+                    <p>ELIZA was one of the first AI programs capable of simulating conversation. It demonstrated the potential of natural language processing and inspired further research in human-computer interaction.</p>
+                </div>
+            </div>
+            <div class="milestone" data-id="1980s">
+                <h3>1980s</h3>
+                <p>Introduction of expert systems and knowledge-based AI.</p>
+                <div class="milestone-details">
+                    <p>Expert systems were designed to mimic human decision-making in specific domains. They used rule-based logic and were widely applied in industries like healthcare and finance.</p>
+                </div>
+            </div>
+            <div class="milestone" data-id="1990s">
+                <h3>1990s</h3>
+                <p>Emergence of machine learning and data-driven AI.</p>
+                <div class="milestone-details">
+                    <p>Machine learning algorithms began to leverage large datasets to improve performance. This era marked the transition from rule-based systems to data-driven approaches.</p>
+                </div>
+            </div>
+            <div class="milestone" data-id="2010s">
+                <h3>2010s</h3>
+                <p>Breakthroughs in deep learning and neural networks.</p>
+                <div class="milestone-details">
+                    <p>Deep learning revolutionized AI by enabling machines to process unstructured data like images and speech. Neural networks became the backbone of modern AI applications.</p>
+                </div>
+            </div>
+            <div class="milestone" data-id="2020s">
+                <h3>2020s</h3>
+                <p>Widespread adoption of AI in industries like healthcare, finance, and transportation.</p>
+                <div class="milestone-details">
+                    <p>AI is now integrated into everyday life, powering technologies like autonomous vehicles, personalized medicine, and financial forecasting. Ethical considerations and regulations are becoming increasingly important.</p>
+                </div>
+            </div>
+        </div>
     </section>
 
     <section class="content-section">
@@ -112,5 +155,70 @@
             .then(response => response.text())
             .then(data => document.getElementById('footer-placeholder').innerHTML = data);
     </script>
+
+    
+<script>
+    const draggables = document.querySelectorAll('.draggable');
+    const droppables = document.querySelectorAll('.droppable');
+    const resultContainer = document.querySelector('.puzzle-result');
+
+    draggables.forEach(draggable => {
+        draggable.addEventListener('dragstart', () => {
+            draggable.classList.add('dragging');
+        });
+
+        draggable.addEventListener('dragend', () => {
+            draggable.classList.remove('dragging');
+        });
+    });
+
+    droppables.forEach(droppable => {
+        droppable.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            droppable.classList.add('hovered');
+        });
+
+        droppable.addEventListener('dragleave', () => {
+            droppable.classList.remove('hovered');
+        });
+
+        droppable.addEventListener('drop', (e) => {
+            e.preventDefault();
+            const dragging = document.querySelector('.dragging');
+            const match = dragging.getAttribute('data-match');
+            const targetMatch = droppable.getAttribute('data-match');
+
+            if (match === targetMatch) {
+                droppable.textContent = dragging.textContent;
+                droppable.classList.add('correct');
+                dragging.remove();
+            } else {
+                droppable.classList.add('incorrect');
+                setTimeout(() => droppable.classList.remove('incorrect'), 1000);
+            }
+
+            checkCompletion();
+        });
+    });
+
+    function checkCompletion() {
+        const remainingDraggables = document.querySelectorAll('.draggable');
+        if (remainingDraggables.length === 0) {
+            resultContainer.textContent = 'Congratulations! You matched all components correctly!';
+        }
+    }
+</script>
+
+<script>
+    // Select all milestone elements
+    const milestones = document.querySelectorAll('.milestone');
+
+    milestones.forEach(milestone => {
+        milestone.addEventListener('click', () => {
+            // Toggle the "active" class on the clicked milestone
+            milestone.classList.toggle('active');
+        });
+    });
+</script>
 </body>
 </html>

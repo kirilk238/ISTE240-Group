@@ -226,6 +226,9 @@ nav {
 
 /* Add this CSS rule to center the header */
 .content-section h2 {
+    color: #0073e6; /* Blue color for the heading */
+    font-size: 2rem;
+    margin-bottom: 1rem;
     text-align: center;
 }
 
@@ -237,6 +240,12 @@ nav {
     background: var(--soft-gray);
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.content-section.no-background {
+    background: none;
+    box-shadow: none;
+    padding: 0;
 }
 
 .content-section .columns {
@@ -516,4 +525,166 @@ nav {
 .grid div:nth-child(2n) {
     background: #f0f8ff; /* Light background for descriptions */
     color: var(--near-black); /* Dark text for readability */
+}
+
+/* Puzzle Game */
+.puzzle-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.puzzle-items, .puzzle-targets {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Draggable Items (Left Cards) */
+.draggable {
+    padding: 1rem;
+    background: #0073e6; /* Blue background for draggable items */
+    color: white; /* White text for readability */
+    border-radius: 8px;
+    text-align: center;
+    min-height: 60px; /* Ensure consistent height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, background-color 0.2s;
+    margin-bottom: 0.25rem; /* Add bottom margin for spacing */
+}
+
+.droppable {
+    padding: 1rem;
+    background: #f0f8ff; /* Light blue background for droppable targets */
+    color: var(--near-black); /* Dark text for readability */
+    border-radius: 8px;
+    text-align: center;
+    min-height: 60px; /* Ensure consistent height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: 2px dashed #0073e6;
+}
+
+.droppable.correct {
+    background: #0aca5a; /* Green for correct matches */
+    color: white;
+    border-color: #0aca5a;
+}
+
+.droppable.incorrect {
+    background: #FF5252; /* Red for incorrect matches */
+    color: white;
+    border-color: #FF5252;
+}
+
+.puzzle-result {
+    margin-top: 2rem;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* Instruction Text for Puzzle Game */
+.puzzle-instruction {
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--near-black);
+    margin-bottom: 1.5rem;
+    font-style: italic;
+}
+
+/* Historical Milestones Section */
+.milestones {
+    margin-top: 2rem;
+}
+
+.milestone {
+    background: var(--bg-color); /* Dynamic background color */
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, transform 0.2s;
+}
+
+.milestone:hover {
+    transform: scale(1.02); /* Slight zoom effect */
+}
+
+.milestone h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: var(--primary-blue);
+}
+
+.milestone p {
+    margin: 0.5rem 0 0;
+    font-size: 1rem;
+    color: var(--near-black);
+}
+
+/* Hidden Details */
+.milestone-details {
+    display: none; /* Initially hidden */
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #ccc;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Active Milestone */
+.milestone.active {
+    background: #0073e6; /* Blue background for expanded block */
+    color: white; /* White text for readability */
+}
+
+.milestone.active h3, .milestone.active p, .milestone.active .milestone-details {
+    color: white; /* Ensure all text is white when active */
+}
+
+.milestone.active .milestone-details {
+    display: block; /* Show details when active */
+}
+
+/* Progressive Gray Gradient */
+.milestone[data-id="1950s"] {
+    --bg-color: #f0f0f0; /* Light gray */
+}
+
+.milestone[data-id="1960s"] {
+    --bg-color: #e0e0e0; /* Slightly darker gray */
+}
+
+.milestone[data-id="1980s"] {
+    --bg-color: #d0d0d0; /* Medium gray */
+}
+
+.milestone[data-id="1990s"] {
+    --bg-color: #c0c0c0; /* Darker gray */
+}
+
+.milestone[data-id="2010s"] {
+    --bg-color: #b0b0b0; /* Even darker gray */
+}
+
+.milestone[data-id="2020s"] {
+    --bg-color: #a0a0a0; /* Darkest gray */
+}
+
+/* Instruction Text for Milestones */
+.milestone-instruction {
+    text-align: center;
+    font-size: 1rem;
+    color: var(--near-black);
+    margin-bottom: 1.5rem;
+    font-style: italic;
 }
