@@ -84,7 +84,100 @@ nav {
     justify-content: center;
     align-items: center;
     text-align: center;
+    font-size: 1rem;
     padding-top: 5rem; /* Offset for fixed header */
+}
+
+.quiz-hero {
+    position: relative;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    height: 100vh; /* Full viewport height */
+    overflow: hidden;
+    z-index: 1; /* Ensure the content is above the background */
+}
+
+.quiz-hero::before {
+    content: "";
+    position: fixed; /* Make the background fixed */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('images/ascii-art4.png'); /* Add your background image */
+    background-size: cover; /* Ensure the image covers the entire viewport */
+    background-position: center; /* Center the image */
+    z-index: -1; /* Place the background behind the content */
+    pointer-events: none; /* Prevent interaction with the background */
+}
+
+
+.quiz-hero h1,
+.quiz-hero p,
+.quiz-hero .btn {
+    opacity: 1; /* Ensure full visibility */
+    z-index: 2; /* Ensure the text is above any background images */
+}
+
+.quiz-hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: var(--primary-blue);
+}
+
+.quiz-hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: var(--primary-blue);
+}
+
+.quiz-hero .btn {
+    padding: 0.8rem 1.5rem;
+    font-size: 1.2rem;
+    background-color: black; /* Default black background */
+    color: white; /* Default white text */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.quiz-hero .btn:hover {
+    background-color: white; /* Change background to white on hover */
+    color: black; /* Change text to black on hover */
+}
+
+/* Hero Images */
+.hero-images {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.hero-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: fill; /* Adjust the size of the image */
+    opacity: 1; /* Fully visible by default */
+    pointer-events: none; /* Ensure the images don't interfere with interactions */
+    transition: opacity 3s ease; /* Smooth transition for opacity over 3 seconds */
+}
+
+.hero-image-2 {
+    opacity: 0; /* Initially hidden */
+}
+
+#test-knowledge-btn:hover ~ .hero-images .hero-image-1 {
+    opacity: 0; /* Fade out the first image */
+}
+
+#test-knowledge-btn:hover ~ .hero-images .hero-image-2 {
+    opacity: 1; /* Fade in the second image */
 }
 
 /* Spline Background */
@@ -1121,100 +1214,51 @@ nav {
 }
 
 .quiz-hero {
-    height: 100vh;
-    background: linear-gradient(135deg, #065bdb, #680beb);
-    color: white;
+    position: relative;
+    text-align: center;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding-top: 5rem; /* Offset for fixed header */
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    height: 100vh; /* Full viewport height */
+    overflow: hidden;
+    background-image: url('images/ascii-art4.png'); /* Add your background image */
+    background-size: cover; /* Ensure the image covers the entire section */
+    background-position: center; /* Center the image */
+    background-attachment: fixed; /* Keep the background fixed */
+}
+
+.quiz-hero h1,
+.quiz-hero p,
+.quiz-hero .btn {
+    opacity: 1; /* Ensure full visibility */
+    z-index: 2; /* Ensure the text is above any background images */
 }
 
 .quiz-hero h1 {
-    font-size: 3.5rem; /* Match the font size */
-    margin-bottom: -1rem; /* Add spacing below the heading */
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Add shadow for better readability */
-    color: white; /* Ensure the text color matches the homepage */
-    font-weight: bold; /* Make the text bold */
-    text-align: center; /* Center-align the text */
-}
-
-.quiz-hero .btn {
-    font-size: 1.2rem;
-    padding: 0.8rem 2rem;
-    background-color: var(--accent-green);
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 3s ease, transform 0.2s ease, box-shadow 0.2s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Clean shadow */
-}
-
-.quiz-hero .btn:hover {
-    background-color: var(--primary-blue);
-    transform: translateY(-2px); /* Slight lift on hover */
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Slightly stronger shadow on hover */
-}
-
-.hero-content h1 {
     font-size: 3rem;
     margin-bottom: 1rem;
 }
 
-.hero-content p {
+.quiz-hero p {
     font-size: 1.2rem;
     margin-bottom: 2rem;
 }
 
-.hero-content .btn {
+.quiz-hero .btn {
+    padding: 0.8rem 1.5rem;
     font-size: 1.2rem;
-    padding: 0.8rem 2rem;
-    background-color: var(--accent-green);
-    color: white;
+    background-color: black; /* Default black background */
+    color: white; /* Default white text */
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 2.3s ease, color 0.3s ease; /* Smooth transition for hover effect */
 }
 
-.hero-content .btn:hover {
-    background-color: var(--primary-blue);
-}
-
-/* ASCII Mural */
-.ascii-mural {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    z-index: 5;
-}
-
-.ascii-key {
-    position: absolute;
-    font-size: 2rem;
-    font-family: monospace;
-    color: rgba(255, 255, 255, 0.8);
-    animation: fall 5s linear infinite;
-}
-
-@keyframes fall {
-    0% {
-        transform: translateY(-100%);
-        opacity: 0;
-    }
-    10% {
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(100vh);
-        opacity: 0;
-    }
+.quiz-hero .btn:hover {
+    background-color: white; /* Change background to white on hover */
+    color: black; /* Change text to black on hover */
 }
 
 /* Hide the rest of the page initially */
@@ -1455,10 +1499,8 @@ body.hidden .api-features {
     text-align: center;
     margin: 2rem auto;
     padding: 2rem;
-    background-color: #f9f9f9;
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    max-width: 800px;
+    max-width: auto;
 }
 
 .api-features h2 {
@@ -1470,9 +1512,8 @@ body.hidden .api-features {
 .api-feature {
     margin: 2rem auto;
     padding: 2rem;
-    background: white;
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: blue;
     width: 100%; /* Take the full width of the parent container */
     max-width: 800px; /* Limit the maximum width */
     text-align: center;
@@ -1481,13 +1522,13 @@ body.hidden .api-features {
 .api-feature h3 {
     font-size: 1.5rem;
     margin-bottom: 1rem;
-    color: var(--primary-blue);
+    color: white;
 }
 
 .api-feature button {
     margin-top: 1rem;
     padding: 0.8rem 1.5rem;
-    background-color: var(--primary-blue);
+    background-color: var(--accent-green);
     color: white;
     border: none;
     border-radius: 5px;
@@ -1496,12 +1537,12 @@ body.hidden .api-features {
 }
 
 .api-feature button:hover {
-    background-color: var(--accent-green);
+    background-color: var(--special-purple);
 }
 
 .api-response {
     font-size: 1.2rem;
-    color: var(--near-black);
+    color: white;
     margin-top: 1rem;
 }
 
@@ -1592,7 +1633,7 @@ body.hidden .api-features {
 
 /* Styling for code snippets */
 .code-snippet {
-    background-color: #2d2d2d; /* Dark background like an IDE */
+    background-color: #1e1e1e !important; /* Dark background like an IDE */
     color: #f8f8f2; /* Light text color */
     font-family: 'Courier New', Courier, monospace; /* Monospaced font */
     font-size: 1.2rem; /* Larger font size for readability */
@@ -1659,3 +1700,23 @@ body.hidden .api-features {
     background-color: var(--accent-green);
 }
 
+/* Dynamic Text */
+#dynamic-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-blue);
+    text-align: center;
+    margin-top: 1rem;
+    visibility: hidden; /* Initially hidden */
+}
+
+#dynamic-text span {
+    display: inline-block; /* Ensure each letter is treated individually */
+    opacity: 0; /* Start with invisible letters */
+}
+
+@keyframes fade-in {
+    to {
+        opacity: 1; /* Fade in to full visibility */
+    }
+}

@@ -21,16 +21,16 @@
     </header>
 
     <section class="quiz-hero">
-        <h1>Test Your AI Knowledge</h1>
-        <p>Challenge yourself with interactive questions about AI concepts.</p>
-        <button class="btn btn-primary" onclick="scrollToQuiz()">Test Your Knowledge</button>
-        
+        <button class="btn btn-primary" id="test-knowledge-btn" onclick="scrollToQuiz()">Test Your Knowledge</button>
+        <div class="hero-images">
+            <img src="images/ascii-art4.png" alt="ASCII Art 4" class="hero-image hero-image-1">
+            <img src="images/ascii-art1.png" alt="ASCII Art 1" class="hero-image hero-image-2">
+        </div>
     </section>
 
     <section class="quiz-intro" id="quiz-intro">
         <div class="quiz-intro-content">
-            <h2>This Site is Dynamically Generated</h2>
-            <p>Answer questions correctly to progress through the levels and unlock new challenges!</p>
+            <h2 id="dynamic-text" style="visibility: hidden;"></h2>
         </div>
     </section>
 
@@ -64,7 +64,7 @@
         <button class="btn btn-primary" onclick="restartQuiz()">Try Another Quiz</button>
     </section>
 
-    <section class="api-features">
+    <section class="api-features" id="fun-reward-section" style="display: none;">
         <h2>Answer 3 Correct Questions to Get a Fun Reward</h2>
 
         <!-- Numbers API -->
@@ -109,7 +109,7 @@
         </div>
     </section>
 
-    <section class="coding-challenge" id="challenge-1">
+    <section class="coding-challenge" id="challenge-1" style="display: none;">
         <h2>Finish the Code</h2>
         <p>Complete the following Python code to create a simple chatbot using an LLM:</p>
         <pre>
@@ -212,6 +212,11 @@ print(reverse_string("hello"))  # Expected output: "olleh"
             `).join("");
             document.getElementById("quiz-modules").style.display = "none";
             document.getElementById("quiz-container").style.display = "block";
+
+            // Reveal the "Answer 3 Correct Questions to Get a Fun Reward" section for Beginner quiz
+            if (level === "beginner") {
+                document.getElementById("fun-reward-section").style.display = "block";
+            }
         }
 
         function revealLLMContent(level) {
@@ -329,11 +334,30 @@ print(reverse_string("hello"))  # Expected output: "olleh"
 
         function scrollToQuiz() {
             const quizModules = document.getElementById("quiz-modules");
-            const offset = -290; // Adjust this value to control how far above the section you want to scroll
-            const quizModulesPosition = quizModules.getBoundingClientRect().top + window.scrollY + offset;
+            const dynamicText = document.getElementById("dynamic-text");
 
-            // Scroll to the quiz modules with the offset
-            window.scrollTo({ top: quizModulesPosition, behavior: "smooth" });
+            // Scroll to the quiz modules section
+            quizModules.scrollIntoView({ behavior: "smooth" });
+
+            // Start the typing effect
+            startTypingEffect();
+        }
+
+        function startTypingEffect() {
+            const textElement = document.getElementById("dynamic-text");
+            const text = "This Site is Dynamically Generated. Answer questions correctly to progress through the levels and unlock new challenges!";
+            textElement.innerHTML = ""; // Clear any existing content
+
+            text.split("").forEach((char, index) => {
+                const span = document.createElement("span");
+                span.textContent = char === " " ? "\u00A0" : char; // Use non-breaking space for spaces
+                span.style.opacity = "0";
+                span.style.animation = `fade-in 0.5s ease forwards`;
+                span.style.animationDelay = `${index * 0.05}s`; // Delay each character
+                textElement.appendChild(span);
+            });
+
+            textElement.style.visibility = "visible"; // Make the text container visible
         }
 
         function showSolution() {
@@ -385,6 +409,7 @@ print(reverse_string("hello"))  # Expected output: "olleh"
         function checkLLMQuiz() {
             const selectedAnswer = document.querySelector('input[name="llm-question"]:checked');
             const feedback = document.getElementById("llm-feedback");
+            const codingChallenge = document.getElementById("challenge-1");
 
             if (!selectedAnswer) {
                 feedback.textContent = "Please select an answer.";
@@ -393,8 +418,11 @@ print(reverse_string("hello"))  # Expected output: "olleh"
             }
 
             if (selectedAnswer.value === "0") {
-                feedback.textContent = "Correct! LLM stands for Large Language Models.";
+                feedback.textContent = "Did you think it was gonna be this easy? Time to code :)";
                 feedback.style.color = "green";
+
+                // Reveal the Finish the Code segment
+                codingChallenge.style.display = "block";
             } else {
                 feedback.textContent = "Incorrect. Hint: LLM is related to AI and text processing.";
                 feedback.style.color = "red";
