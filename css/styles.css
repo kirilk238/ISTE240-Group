@@ -28,6 +28,7 @@ header {
     background: white;
     padding: 1rem 2rem;
     position: fixed;
+    top: 0;
     width: 100%;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     z-index: 1000;
@@ -43,11 +44,26 @@ nav {
 
 .nav-links {
     display: flex;
+    justify-content: center;
     gap: 2rem; /* Add spacing between menu items */
     list-style: none; /* Remove bullet points */
     margin: 0;
     padding: 0;
-    align-items: center;
+}
+
+.nav-links li {
+    display: inline-block;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--near-black);
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--primary-blue);
 }
 
 /* Logo */
@@ -60,32 +76,15 @@ nav {
     height: auto;
 }
 
-.nav-links li {
-    display: inline-block;
-}
-
-.nav-links a {
-    color: var(--primary-blue);
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s, opacity 0.3s;
-}
-
-.nav-links a:hover {
-    color: var(--accent-green);
-    opacity: 0.8;
-}
-
 /* Hero Section */
-.hero {
-    position: relative;
-    height: 100vh; /* Make the hero section take up the full viewport height */
+.hero, .quiz-hero {
+    height: 100vh;
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
-    overflow: hidden;
-    color: white;
+    align-items: center;
     text-align: center;
+    padding-top: 5rem; /* Offset for fixed header */
 }
 
 /* Spline Background */
@@ -1119,4 +1118,211 @@ nav {
     background: var(--soft-gray);
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.quiz-hero {
+    height: 100vh;
+    background: linear-gradient(135deg, #065bdb, #680beb);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 5rem; /* Offset for fixed header */
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.hero-content .btn {
+    font-size: 1.2rem;
+    padding: 0.8rem 2rem;
+    background-color: var(--accent-green);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.hero-content .btn:hover {
+    background-color: var(--primary-blue);
+}
+
+/* ASCII Mural */
+.ascii-mural {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 5;
+}
+
+.ascii-key {
+    position: absolute;
+    font-size: 2rem;
+    font-family: monospace;
+    color: rgba(255, 255, 255, 0.8);
+    animation: fall 5s linear infinite;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+}
+
+/* Hide the rest of the page initially */
+body.hidden #quiz-modules,
+body.hidden #quiz-container,
+body.hidden #quiz-result,
+body.hidden .api-features {
+    display: none;
+}
+
+/* Specific to quiz.html */
+
+/* Remove scrolling initially */
+.quiz-page {
+    overflow: hidden;
+}
+
+/* Allow scrolling when the quiz is active */
+.quiz-page.quiz-active {
+    overflow: auto;
+}
+
+/* Header */
+.quiz-page header {
+    background: white;
+    padding: 1rem 2rem;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.quiz-page .nav-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.quiz-page .nav-links a {
+    text-decoration: none;
+    color: var(--near-black);
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.quiz-page .nav-links a:hover {
+    color: var(--primary-blue);
+}
+
+/* Hero Section */
+.quiz-page .quiz-hero {
+    height: 100vh;
+    background: linear-gradient(135deg, #065bdb, #680beb);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 5rem; /* Offset for fixed header */
+}
+
+.quiz-page .hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.quiz-page .hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.quiz-page .hero-content .btn {
+    font-size: 1.2rem;
+    padding: 0.8rem 2rem;
+    background-color: var(--accent-green);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.quiz-page .hero-content .btn:hover {
+    background-color: var(--primary-blue);
+}
+
+/* Quiz Modules Styling */
+.quiz-modules {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns, each taking equal space */
+    gap: 2rem; /* Space between grid items */
+    padding: 2rem;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.module {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.module:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.module h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.module p {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.module .btn {
+    font-size: 1rem;
+    padding: 0.8rem 1.5rem;
+    background-color: var(--primary-blue);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.module .btn:hover {
+    background-color: var(--accent-green);
 }
