@@ -1132,6 +1132,33 @@ nav {
     padding-top: 5rem; /* Offset for fixed header */
 }
 
+.quiz-hero h1 {
+    font-size: 3.5rem; /* Match the font size */
+    margin-bottom: -1rem; /* Add spacing below the heading */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Add shadow for better readability */
+    color: white; /* Ensure the text color matches the homepage */
+    font-weight: bold; /* Make the text bold */
+    text-align: center; /* Center-align the text */
+}
+
+.quiz-hero .btn {
+    font-size: 1.2rem;
+    padding: 0.8rem 2rem;
+    background-color: var(--accent-green);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Clean shadow */
+}
+
+.quiz-hero .btn:hover {
+    background-color: var(--primary-blue);
+    transform: translateY(-2px); /* Slight lift on hover */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Slightly stronger shadow on hover */
+}
+
 .hero-content h1 {
     font-size: 3rem;
     margin-bottom: 1rem;
@@ -1285,6 +1312,7 @@ body.hidden .api-features {
     grid-template-columns: repeat(3, 1fr); /* 3 columns, each taking equal space */
     gap: 2rem; /* Space between grid items */
     padding: 2rem;
+    margin-top: 30px; /* Add space between the hero section and the cards */
     background-color: #f9f9f9;
     text-align: center;
 }
@@ -1326,3 +1354,252 @@ body.hidden .api-features {
 .module .btn:hover {
     background-color: var(--accent-green);
 }
+
+/* Educational Content Section */
+.educational-content {
+    background: var(--soft-gray);
+    padding: 2rem;
+    border-radius: 8px;
+    margin: 2rem auto;
+    max-width: 800px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.educational-content h2 {
+    font-size: 2rem;
+    color: var(--primary-blue);
+    margin-bottom: 1rem;
+}
+
+.educational-content ul {
+    text-align: left;
+    margin: 1rem auto;
+    max-width: 600px;
+    list-style: disc;
+    padding-left: 1.5rem;
+}
+
+/* Coding Challenge Section */
+.coding-challenge {
+    background: var(--soft-gray);
+    padding: 2rem;
+    border-radius: 8px;
+    margin: 2rem auto;
+    max-width: 800px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.coding-challenge h2 {
+    font-size: 2rem;
+    color: var(--primary-blue);
+    margin-bottom: 1rem;
+}
+
+.coding-challenge pre {
+    background: #f4f4f4;
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: left;
+    overflow-x: auto;
+    font-family: monospace;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.coding-challenge .btn {
+    font-size: 1.3rem; /* Slightly bigger text */
+    padding: 0.8rem 1.5rem;
+    background-color: var(--primary-blue);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: none; /* Remove shadow */
+}
+
+.coding-challenge .btn:hover {
+    background-color: var(--accent-green);
+}
+
+.coding-challenge #solution {
+    margin-top: 1rem;
+    font-size: 1rem;
+    color: var(--accent-green);
+}
+
+.coding-challenge input[type="text"] {
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 50%;
+    margin-top: 1rem;
+    display: inline-block;
+}
+
+.coding-challenge input[type="text"]:focus {
+    outline: none;
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 5px rgba(0, 91, 181, 0.5);
+}
+
+.coding-challenge #code-feedback {
+    font-weight: bold;
+}
+
+/* Center and style the "Answer 3 Correct Questions to Get a Fun Reward" section */
+.api-features {
+    text-align: center;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+}
+
+.api-features h2 {
+    font-size: 2rem;
+    color: var(--primary-blue);
+    margin-bottom: 1.5rem;
+}
+
+.api-feature {
+    margin: 2rem auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Take the full width of the parent container */
+    max-width: 800px; /* Limit the maximum width */
+    text-align: center;
+}
+
+.api-feature h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-blue);
+}
+
+.api-feature button {
+    margin-top: 1rem;
+    padding: 0.8rem 1.5rem;
+    background-color: var(--primary-blue);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.api-feature button:hover {
+    background-color: var(--accent-green);
+}
+
+.api-response {
+    font-size: 1.2rem;
+    color: var(--near-black);
+    margin-top: 1rem;
+}
+
+/* Style the quiz container */
+.quiz-container {
+    text-align: center;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+}
+
+.quiz-container h2 {
+    font-size: 2rem;
+    color: var(--primary-blue);
+    margin-bottom: 1.5rem;
+}
+
+.quiz-question {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.quiz-question p {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.quiz-question label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+.quiz-container button {
+    margin-top: 1rem;
+    padding: 0.8rem 1.5rem;
+    background-color: var(--primary-blue);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.quiz-container button:hover {
+    background-color: var(--accent-green);
+}
+
+/* Center and style the "Your Results" section */
+.quiz-result {
+    text-align: center;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+}
+
+.quiz-result h2 {
+    font-size: 2rem;
+    color: var(--primary-blue);
+    margin-bottom: 1rem;
+}
+
+.quiz-result p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    color: var(--near-black);
+}
+
+.quiz-result button {
+    padding: 0.8rem 1.5rem;
+    background-color: var(--primary-blue);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.quiz-result button:hover {
+    background-color: var(--accent-green);
+}
+
+/* Styling for code snippets */
+.code-snippet {
+    background-color: #2d2d2d; /* Dark background like an IDE */
+    color: #f8f8f2; /* Light text color */
+    font-family: 'Courier New', Courier, monospace; /* Monospaced font */
+    font-size: 1.2rem; /* Larger font size for readability */
+    padding: 1.5rem;
+    border-radius: 8px;
+    overflow-x: auto; /* Allow horizontal scrolling for long lines */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5rem;
+}
+

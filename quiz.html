@@ -22,8 +22,9 @@
 
     <section class="quiz-hero">
         <h1>Test Your AI Knowledge</h1>
-        <p>Choose your level and challenge yourself with interactive questions about AI concepts, applications, and ethics.</p>
+        <p>Challenge yourself with interactive questions about AI concepts.</p>
         <button class="btn btn-primary" onclick="scrollToQuiz()">Test Your Knowledge</button>
+        
     </section>
 
     <section class="quiz-modules" id="quiz-modules">
@@ -81,6 +82,78 @@
         </div>
     </section>
 
+    <section class="educational-content">
+        <h2>Learn About Large Language Models (LLMs)</h2>
+        <p>Large Language Models (LLMs) are advanced AI systems trained on massive datasets to understand and generate human-like text. They are used in applications like chatbots, translation, and content generation.</p>
+        <ul>
+            <li><strong>Beginner:</strong> Learn the basics of how LLMs process text.</li>
+            <li><strong>Advanced:</strong> Understand the architecture of transformers and attention mechanisms.</li>
+            <li><strong>Expert:</strong> Explore fine-tuning and ethical considerations in deploying LLMs.</li>
+        </ul>
+    </section>
+
+    <section class="coding-challenge" id="challenge-1">
+        <h2>Finish the Code</h2>
+        <p>Complete the following Python code to create a simple chatbot using an LLM:</p>
+        <pre>
+<code>
+import openai
+
+# Initialize the OpenAI API
+openai.api_key = "YOUR_API_KEY"
+
+def chatbot(prompt):
+    response = openai.Completion.create(
+        engine="text-davinci-003",
+        prompt=prompt,
+        max_tokens=100
+    )
+    return response.choices[0].text.strip()
+
+# Test the chatbot
+user_input = input("You: ")
+print("Chatbot:", chatbot(<input id="code-input-1" type="text" placeholder="Type here" />)) <!-- Editable field -->
+</code>
+        </pre>
+        <button class="btn btn-primary" onclick="checkCode1()">Check Answer</button>
+        <p id="code-feedback-1" style="margin-top: 1rem; font-size: 1.2rem;"></p>
+    </section>
+
+    <section class="coding-challenge" id="challenge-2" style="display: none;">
+        <h2>Finish the Code</h2>
+        <p>Complete the following Python code to calculate the factorial of a number:</p>
+        <pre>
+<code>
+def factorial(n):
+    if n == 0 or n == 1:
+        return 1
+    else:
+        return n * factorial(<input id="code-input-2" type="text" placeholder="Type here" />) <!-- Editable field -->
+
+# Test the function
+print(factorial(5))  # Expected output: 120
+</code>
+        </pre>
+        <button class="btn btn-primary" onclick="checkCode2()">Check Answer</button>
+        <p id="code-feedback-2" style="margin-top: 1rem; font-size: 1.2rem;"></p>
+    </section>
+
+    <section class="coding-challenge" id="challenge-3" style="display: none;">
+        <h2>Finish the Code</h2>
+        <p>Complete the following Python code to reverse a string:</p>
+        <pre>
+<code>
+def reverse_string(s):
+    return s[<input id="code-input-3" type="text" placeholder="Type here" />] <!-- Editable field -->
+
+# Test the function
+print(reverse_string("hello"))  # Expected output: "olleh"
+</code>
+        </pre>
+        <button class="btn btn-primary" onclick="checkCode3()">Check Answer</button>
+        <p id="code-feedback-3" style="margin-top: 1rem; font-size: 1.2rem;"></p>
+    </section>
+
     <script>
         const quizzes = {
             beginner: [
@@ -136,23 +209,17 @@
             document.getElementById("quiz-container").style.display = "none";
             document.getElementById("quiz-result").style.display = "block";
 
-            // Keep quiz modules horizontally aligned
-            const quizModules = document.getElementById("quiz-modules");
-            quizModules.style.display = "flex";
-            quizModules.style.flexDirection = "row";
-            quizModules.style.justifyContent = "center";
-
             document.getElementById("result-text").textContent = `You scored ${score} out of ${currentQuiz.length} in the ${currentLevel} quiz.`;
 
-            // Reveal rewards based on the number of correct answers
+            // Reveal the reward based on the current quiz level
             if (score >= 3) {
-                revealReward("ai-fact"); // Reveal Fun AI Fact
-            }
-            if (score >= 6) {
-                revealReward("ai-tip"); // Reveal AI Learning Tip
-            }
-            if (score >= 9) {
-                revealReward("cat-fact"); // Reveal Fun Cat Fact
+                if (currentLevel === "beginner") {
+                    revealReward("ai-fact"); // Reveal Fun AI Fact for Beginner
+                }  if (currentLevel === "advanced") {
+                    revealReward("ai-tip"); // Reveal AI Learning Tip for Advanced
+                }  if (currentLevel === "expert") {
+                    revealReward("cat-fact"); // Reveal Fun Cat Fact for Expert
+                }
             }
         }
 
@@ -228,6 +295,84 @@
             const quizModules = document.getElementById("quiz-modules");
             quizModules.scrollIntoView({ behavior: "smooth" });
         }
+
+        function showSolution() {
+            const solution = document.getElementById("solution");
+            solution.style.display = "block";
+        }
+
+        function checkCode1() {
+            const userInput = document.getElementById("code-input-1").value.trim();
+            const feedback = document.getElementById("code-feedback-1");
+
+            if (userInput === "user_input") {
+                feedback.textContent = "Correct! You completed the code successfully.";
+                feedback.style.color = "green";
+                document.getElementById("challenge-2").style.display = "block"; // Show the second challenge
+            } else {
+                feedback.textContent = "Incorrect. Hint: Replace the blank with the variable used for user input.";
+                feedback.style.color = "red";
+            }
+        }
+
+        function checkCode2() {
+            const userInput = document.getElementById("code-input-2").value.trim();
+            const feedback = document.getElementById("code-feedback-2");
+
+            if (userInput === "n-1") {
+                feedback.textContent = "Correct! You completed the code successfully.";
+                feedback.style.color = "green";
+                document.getElementById("challenge-3").style.display = "block"; // Show the third challenge
+            } else {
+                feedback.textContent = "Incorrect. Hint: Use recursion to calculate the factorial.";
+                feedback.style.color = "red";
+            }
+        }
+
+        function checkCode3() {
+            const userInput = document.getElementById("code-input-3").value.trim();
+            const feedback = document.getElementById("code-feedback-3");
+
+            if (userInput === "::-1") {
+                feedback.textContent = "Correct! You completed the code successfully.";
+                feedback.style.color = "green";
+            } else {
+                feedback.textContent = "Incorrect. Hint: Use slicing to reverse the string.";
+                feedback.style.color = "red";
+            }
+        }
     </script>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>About Us</h3>
+                <ul>
+                    <li><a href="about.html">Our Mission</a></li>
+                    <li><a href="team.html">Team</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="learn.html">Learn AI</a></li>
+                    <li><a href="demos.html">Demos</a></li>
+                    <li><a href="quiz.html">Quiz</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Follow Us</h3>
+                <ul class="social-links">
+                    <li><a href="https://twitter.com" target="_blank">Twitter</a></li>
+                    <li><a href="https://facebook.com" target="_blank">Facebook</a></li>
+                    <li><a href="https://linkedin.com" target="_blank">LinkedIn</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 AI Learning Platform. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>
