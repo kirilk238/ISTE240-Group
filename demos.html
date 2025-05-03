@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport"content="width=device-width, inital-scale=1.0"/>
+        <title>LLM Demos | Survival Guide</title>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Roboto&display=swap" rel="stylesheet">
+        <style>
+            body{
+                font-family: 'Roboto', sans-serif;
+                margin: 0;
+                background: #F4F4F4;
+                color: #1A1A1A;
+            }
+
+            header{
+                position: relative;
+                height: 60vh;
+                overflow: hidden;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+                text-align: center;
+                
+            }
+
+            header video{
+                position: absolute;
+                top: 0;
+                left: 0;
+                object-fit: cover;
+                width: 100%;
+                height: 100%;
+                z-index: -1;
+            }
+
+            header h1{
+                font-family: 'Poppins', sans-serif;
+                font-size: 3rem;
+                background: rgba(red, green, blue, alpha);
+                padding: 1rem 2rem;
+                border-radius: 12px;
+            }
+            .section{
+                max-width: 1000px;
+                margin: 2rem auto;
+                background: white;
+                padding: 2rem;
+                border-radius: 10px;
+                box-shadow: 0 4px 20px rgba(red, green, blue, alpha);
+
+
+            }
+
+            h2{
+                font-family: 'Poppins', sans-serif;
+                color: #0057D9;
+            }
+
+            textarea{
+                width: 100%;
+                height: 100px;
+                padding: 1rem;
+                border-radius: 8px;
+                border: 1px solid #ccc;
+                font-size: 1rem;
+            }
+
+            button{
+                padding: 0.75rem 1.5rem;
+                background-color: #00C853;
+                border: none;
+                color: white;
+                border-radius: 6px;
+                font-weight: bold;
+                margin-top: 1rem;
+                cursor: pointer;
+            }
+
+            .code-block{
+                background: #1A1A1A;
+                color: #00C853;
+                padding: 1rem;
+                border-radius: 8px;
+                font-family: 'Fira Code', monospace;
+                overflow-x: auto;
+                margin-top: 1rem;
+            }
+
+            .result{
+                font-weight: bold;
+                margin-top: 1rem;
+            }
+
+            .typewriter{
+                font-family: 'Fira Code', monospace;
+                white-space: pre-wrap;
+                border-left: 2px solid #0057D9;
+                padding-left: 1rem;
+                margin-top: 1rem;
+            }
+
+            .chat-placeholder{
+                background: #e0e0e0;
+                padding: 1rem;
+                border-radius: 8px;
+                margin-top: 1rem;
+            }
+        </style>
+    </head>
+
+<body>
+    <header>
+        <video autoplay muted loop>
+            <source src="videos/network.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+        </video>
+        <h1>Explore LLM Demos</h1>
+    </header>
+    <div class="section">
+        <h2>Real-Time Sentiment Analyzer</h2>
+        <p>Type any sentence whether it's positive, neagtive, or neutral.</p>
+        <textarea id="sentiment-input" placeholder="E.g., I love learning about AI!"></textarea>
+        <buttton onclick="analyzeSentiment()">Analyze sentiment</buttton>
+        <p class="result" id="sentiment-result"></p>
+    </div>
+
+    <div class="section">
+        <h2>Typing Simulation: What is an API Call?</h2>
+        <p>Click "Start" to see a simulated explanation appear word-by-word.</p>
+        <button id="start-typing">Start</button>
+        <div id="typewriter-text" class="typewriter"></div>
+    </div>
+
+    <div class="section">
+        <h2>GPT API Integration Snippet</h2>
+        <p>This example shows how to connect to OpenAI's GPT-4 endpoint using JavaScript:</p>
+        <div class="code-block" id="code-snippet">
+            fetch("https://api.openai.com/v1/chat/completions", {
+                method:"POST",
+                headers:{
+                    "Authorization": "Bearer YOUR_API_KEY", 
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    model: "gpt-4",
+                    messages:[{role:"user", content:"Hello!"}]
+                })
+            });
+        </div>
+        <button onclick="copyCode()">Copy Code</button>
+        <p id="copy-message" style="margin-top: 10px;"></p>
+    </div>
+
+    <div class="section">
+        <h2>Chatbot Demo Placeholder</h2>
+        <div class="chat-placeholder">
+            <p>This will soon be a working GPT chatbot. Stay tuned!</p>
+
+        </div>
+    </div>
+
+    <script>
+        function analyzeSentiment(){
+            const text = document.getElementById("sentiment-input").value.toLowerCase();
+            let result = " Neutral 😐";
+            if (text.includes("love") || text.includes("great") || text.includes("awesome")){
+                result = "Positive 😊";
+            
+            }
+
+            else if (text.includes("hate") || text.includes("bad") || text.includes("terrible")){
+                result = "Negative 😡";
+
+            }
+            document.getElementById("sentiment-result").textContent = "Sentiment:" + result;
+        }
+            const explanation = "An API call is how you send a request to a server, like OpenAI, asking it to process a message and send a response. You include data (prompts for example), header (like API keys), and define the model. The server return a response, which your app can use.";
+
+            document.getElementById("start-typing").addEventListener("click", function (){
+            const output = document.getElementById("typewriter-text");
+            output.innerHTML="";
+            let i = 0;
+            
+            const typing = setInterval(() =>{
+                output.innerHTML += explanation.charAt(i);
+                i++;
+                if (i >= explanation.length) clearInterval(typing);
+
+                }, 40);
+            });
+
+            function copyCode(){
+                const text = document.getElementById("code-snippet").innerText;
+                navigator.clipboard.writeText(text).then(() =>{
+                    document.getElementById("copy-message").textContent = "✅ Code copied to clipboard!";
+                }).catch(() =>{
+                    document.getElementById("copy-message").textContent = "❌ Failed to copy.";
+                });
+            }
+
+        
+    </script>
+</body>
+</html>
