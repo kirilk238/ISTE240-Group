@@ -181,7 +181,7 @@
             </div>
         </div>
     </section>
-
+   <!--
     <section class="content-section">
         <h2>How AI Works</h2>
         <div class="grid">
@@ -197,7 +197,140 @@
             <div>Integrating the model into real-world applications.</div>
         </div>
     </section>
+    -->
 
+    <section class="content-section">
+        <h2>Understanding Perceptrons</h2>
+        <p class="puzzle-instruction">Drag and drop the correct descriptions into their respective categories.</p>
+        <div class="puzzle-container">
+            <!-- Draggable Items -->
+            <div class="puzzle-items">
+                <div class="draggable" draggable="true" data-match="what">A perceptron is the simplest type of artificial neural network, consisting of a single layer of weights and biases. It is used for binary classification tasks.</div>
+                <div class="draggable" draggable="true" data-match="how">It takes multiple inputs, applies weights, adds a bias, and passes the result through an activation function to produce an output.</div>
+                <div class="draggable" draggable="true" data-match="limitations">Perceptrons can only solve linearly separable problems. They cannot handle complex tasks like XOR without additional layers.</div>
+            </div>
+
+            <!-- Droppable Targets -->
+            <div class="puzzle-targets">
+                <div class="droppable" data-match="what">What is a Perceptron?</div>
+                <div class="droppable" data-match="how">How Does it Work?</div>
+                <div class="droppable" data-match="limitations">Limitations</div>
+            </div>
+        </div>
+        <div class="puzzle-result"></div>
+    </section>
+
+    <section class="content-section">
+        <h2>Curve Fitting with Neural Networks</h2>
+        <p class="curve-fitting-description">
+            Curve fitting is a fundamental task in machine learning where a model learns to approximate a function by finding the best fit for the given data points. 
+            This process involves adjusting the model's parameters to minimize the error between the predicted outputs and the actual data. 
+            Below, you can see an example of how a neural network gradually aligns its predictions to fit a sine wave, demonstrating the power of iterative learning.
+        </p>
+        <div class="curve-grid">
+            <canvas id="curve1" width="300" height="200" style="border: 1px solid #ccc;"></canvas>
+            <canvas id="curve2" width="300" height="200" style="border: 1px solid #ccc;"></canvas>
+            <canvas id="curve3" width="300" height="200" style="border: 1px solid #ccc;"></canvas>
+        </div>
+    </section>
+
+    <section class="how-ai-works">
+        <h2>How AI Works</h2>
+        <div class="ai-cards-container">
+            <div class="ai-card">Data Collection</div>
+            <div class="ai-card">Data Preprocessing</div>
+            <div class="ai-card">Model Training</div>
+            <div class="ai-card">Evaluation</div>
+            <div class="ai-card">Deployment</div>
+        </div>
+        <button id="shuffle-button">Shuffle Cards</button>
+    </section>
+
+    <section class="how-llms-work">
+        <h2>How LLMs Work</h2>
+        <div class="steps">
+            <div class="step" onclick="toggleStep(this)">
+                <h3>1. Data Collection</h3>
+                <p>LLMs are trained on massive datasets, including books, websites, and other text sources, to learn language patterns and context.</p>
+                <div class="step-details">
+                    <p>Data collection involves gathering diverse and extensive datasets from sources like books, articles, and online content. This ensures the model has a broad understanding of language and context. Ethical considerations, such as data privacy and consent, are crucial during this phase.</p>
+                </div>
+            </div>
+            <div class="step" onclick="toggleStep(this)">
+                <h3>2. Data Preprocessing</h3>
+                <p>Raw data is cleaned, tokenized, and converted into numerical formats that models can process effectively.</p>
+                <div class="step-details">
+                    <p>Preprocessing includes removing duplicates, correcting errors, and standardizing formats. Tokenization breaks text into smaller units (e.g., words or subwords), while numerical encoding transforms these tokens into vectors that the model can interpret.</p>
+                </div>
+            </div>
+            <div class="step" onclick="toggleStep(this)">
+                <h3>3. Model Training</h3>
+                <p>Using transformer architectures, LLMs learn relationships between words and phrases through techniques like attention mechanisms.</p>
+                <div class="step-details">
+                    <p>Training involves feeding the preprocessed data into a neural network, often using a transformer architecture. The model learns to predict the next word in a sequence by analyzing patterns and relationships in the data. This phase requires significant computational resources.</p>
+                </div>
+            </div>
+            <div class="step" onclick="toggleStep(this)">
+                <h3>4. Fine-Tuning</h3>
+                <p>Pre-trained models are fine-tuned on specific tasks or domains to improve performance and relevance.</p>
+                <div class="step-details">
+                    <p>Fine-tuning adapts the general-purpose model to specific use cases, such as medical diagnosis or legal document analysis. This step uses smaller, domain-specific datasets to refine the model's predictions and improve accuracy.</p>
+                </div>
+            </div>
+            <div class="step" onclick="toggleStep(this)">
+                <h3>5. Deployment</h3>
+                <p>Trained LLMs are integrated into applications like chatbots, summarization tools, and content generators.</p>
+                <div class="step-details">
+                    <p>Deployment involves integrating the model into real-world applications. This includes setting up APIs, ensuring scalability, and monitoring performance. Continuous updates and retraining may be required to maintain accuracy and relevance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="llm-applications">
+        <h2>Applications of LLMs</h2>
+        <div class="carousel">
+            <div class="carousel-card" data-description="Automated tutoring, content generation, and personalized learning experiences.">
+                <h3>Education</h3>
+            </div>
+            <div class="carousel-card" data-description="Medical record summarization, patient communication, and research assistance.">
+                <h3>Healthcare</h3>
+            </div>
+            <div class="carousel-card" data-description="Customer support automation, report generation, and market analysis.">
+                <h3>Business</h3>
+            </div>
+            <div class="carousel-card" data-description="Scriptwriting, content creation, and idea generation for writers and designers.">
+                <h3>Creative Industries</h3>
+            </div>
+            <div class="carousel-card" data-description="Code generation, debugging assistance, and API documentation creation.">
+                <h3>Technology</h3>
+            </div>
+            <div class="carousel-card" data-description="Real-time language translation, sentiment analysis, and chatbots.">
+                <h3>Communication</h3>
+            </div>
+            <div class="carousel-card" data-description="Fraud detection, financial forecasting, and personalized banking services.">
+                <h3>Finance</h3>
+            </div>
+            <div class="carousel-card" data-description="Autonomous driving, traffic management, and route optimization.">
+                <h3>Transportation</h3>
+            </div>
+            <div class="carousel-card" data-description="Game AI, virtual reality, and content recommendation.">
+                <h3>Entertainment</h3>
+            </div>
+        </div>
+    </section>
+
+    <section class="llm-advantages">
+        <h2 id="animated-title">Advantages_of_LLMs</h2>
+        
+        <ul>
+            <li>Scalable Text Processing</li>
+            <li>Adaptability to Domains</li>
+            <li>Enhanced Automation</li>
+            <li>Improved Accessibility</li>
+        </ul>
+    </section>
+    <!--
     <section class="content-section">
         <h2>Applications of AI</h2>
         <div class="grid">
@@ -213,6 +346,7 @@
             <div>Content recommendation, game AI, virtual reality experiences.</div>
         </div>
     </section>
+    -->
 
     <div id="footer-placeholder"></div>
     <script>
@@ -262,6 +396,7 @@
                 setTimeout(() => droppable.classList.remove('incorrect'), 1000);
             }
 
+            droppable.classList.remove('hovered');
             checkCompletion();
         });
     });
@@ -284,6 +419,36 @@
             milestone.classList.toggle('active');
         });
     });
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const title = document.getElementById("animated-title");
+    const colors = ["green", "blue", "black"];
+    let colorIndex = 0;
+
+    // Wrap each letter in a span if not already wrapped
+    const letters = title.textContent.split("").map((letter) => {
+        const span = document.createElement("span");
+        span.classList.add("letter");
+        span.textContent = letter;
+        return span;
+    });
+
+    // Clear the title and append the spans
+    title.textContent = "";
+    letters.forEach((span) => title.appendChild(span));
+
+    function changeTitleColors() {
+        letters.forEach((letter, index) => {
+            const color = colors[(colorIndex + index) % colors.length];
+            letter.style.color = color; // Update the color with a transition
+        });
+        colorIndex++;
+    }
+
+    setInterval(changeTitleColors, 1000); // Change colors every second
+});
 </script>
 
 
@@ -449,7 +614,207 @@
                 sendButton.click();
             }
         });
+
+     
     });
+
+    function toggleStep(stepElement) {
+    // Toggle the 'expanded' class on the clicked step
+    stepElement.classList.toggle('expanded');
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    // Other DOMContentLoaded logic here
+});
+</script>
+<script src="js/script.js"></script>
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+    const shuffleButton = document.getElementById("shuffle-button");
+    const cardsContainer = document.querySelector(".ai-cards-container");
+    const cards = Array.from(cardsContainer.children);
+
+    shuffleButton.addEventListener("click", () => {
+        // Add the "shuffling" class to each card
+        cards.forEach((card, index) => {
+            setTimeout(() => {
+                card.classList.add("shuffling");
+            }, index * 200); // Stagger the animation
+        });
+
+        // After the animation, rearrange the cards
+        setTimeout(() => {
+            const shuffledCards = cards.sort(() => Math.random() - 0.5);
+            cardsContainer.innerHTML = ""; // Clear the container
+            shuffledCards.forEach((card) => {
+                card.classList.remove("shuffling");
+                cardsContainer.appendChild(card); // Append shuffled cards
+            });
+        }, cards.length * 200 + 1000); // Wait for the animation to complete
+    });
+});
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+    const canvas = document.getElementById("sineCanvas");
+    if (canvas) {
+        const ctx = canvas.getContext("2d");
+
+        // Draw x and y axes
+        function drawAxes() {
+            ctx.beginPath();
+            ctx.moveTo(50, 200); // Y-axis
+            ctx.lineTo(550, 200);
+            ctx.moveTo(300, 50); // X-axis
+            ctx.lineTo(300, 350);
+            ctx.strokeStyle = "#000";
+            ctx.lineWidth = 2;
+            ctx.stroke();
+        }
+
+        // Draw sine wave
+        function drawSineWave() {
+            ctx.beginPath();
+            ctx.moveTo(50, 200); // Start at the middle of the canvas
+
+            for (let x = 0; x <= 500; x++) {
+                const y = 100 * Math.sin((x * Math.PI) / 180); // Sine function
+                ctx.lineTo(50 + x, 200 - y); // Adjust for canvas coordinates
+            }
+
+            ctx.strokeStyle = "#0073e6"; // Blue color for the sine wave
+            ctx.lineWidth = 2;
+            ctx.stroke();
+        }
+
+        // Draw everything
+        drawAxes();
+        drawSineWave();
+    }
+
+    // Curve Fitting Logic
+    function drawCurve(canvasId, phaseShift) {
+        const canvas = document.getElementById(canvasId);
+        if (canvas) {
+            const ctx = canvas.getContext("2d");
+
+            // Draw x and y axes
+            ctx.beginPath();
+            ctx.moveTo(10, 100); // Y-axis
+            ctx.lineTo(290, 100);
+            ctx.moveTo(150, 10); // X-axis
+            ctx.lineTo(150, 190);
+            ctx.strokeStyle = "#000";
+            ctx.lineWidth = 1;
+            ctx.stroke();
+
+            // Draw sine wave
+            ctx.beginPath();
+            for (let x = 0; x <= 280; x++) {
+                const y = 50 * Math.sin((x * Math.PI) / 180 + phaseShift); // Sine function with phase shift
+                ctx.lineTo(10 + x, 100 - y); // Adjust for canvas coordinates
+            }
+            ctx.strokeStyle = "#0073e6"; // Blue color for the sine wave
+            ctx.lineWidth = 2;
+            ctx.stroke();
+        }
+    }
+
+    // Draw curves with different phase shifts
+    drawCurve("curve1", 0); // Initial curve
+    drawCurve("curve2", Math.PI / 4); // Slightly shifted curve
+    drawCurve("curve3", Math.PI / 2); // Final aligned curve
+});
+//heavy use of AI for this obviously :D
+document.addEventListener("DOMContentLoaded", function () {
+    function animateCurve(canvasId, phaseShift, speed) {
+        const canvas = document.getElementById(canvasId);
+        if (canvas) {
+            const ctx = canvas.getContext("2d");
+            let animationPhase = 0;
+
+            function drawFrame() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear the canvas
+
+                // Draw x and y axes
+                ctx.beginPath();
+                ctx.moveTo(10, 100); // Y-axis
+                ctx.lineTo(290, 100);
+                ctx.moveTo(150, 10); // X-axis
+                ctx.lineTo(150, 190);
+                ctx.strokeStyle = "#000";
+                ctx.lineWidth = 1;
+                ctx.stroke();
+
+                // Draw sine wave
+                ctx.beginPath();
+                for (let x = 0; x <= 280; x++) {
+                    const y = 50 * Math.sin((x * Math.PI) / 180 + animationPhase + phaseShift); // Sine function with animation
+                    ctx.lineTo(10 + x, 100 - y); // Adjust for canvas coordinates
+                }
+                ctx.strokeStyle = "#0073e6"; // Blue color for the sine wave
+                ctx.lineWidth = 2;
+                ctx.stroke();
+
+                // Increment the animation phase
+                animationPhase += speed;
+
+                // Request the next frame
+                requestAnimationFrame(drawFrame);
+            }
+
+            // Start the animation
+            drawFrame();
+        }
+    }
+
+    // Animate curves with different phase shifts and speeds
+    animateCurve("curve1", 0, 0.02); // Initial curve
+    animateCurve("curve2", Math.PI / 4, 0.03); // Slightly shifted curve
+    animateCurve("curve3", Math.PI / 2, 0.04); // Final aligned curve
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const carousel = document.querySelector(".carousel");
+    const cards = Array.from(carousel.children);
+
+    function shuffleCards() {
+        // Add fade-out class to all cards
+        cards.forEach((card) => {
+            card.classList.add("fade-out");
+        });
+
+        // Wait for the fade-out effect to complete
+        setTimeout(() => {
+            // Shuffle the cards array
+            const shuffledCards = cards.sort(() => Math.random() - 0.5);
+
+            // Clear the carousel container
+            carousel.innerHTML = "";
+
+            // Append the shuffled cards back to the carousel
+            shuffledCards.forEach((card) => {
+                card.classList.remove("fade-out"); // Remove fade-out class
+                carousel.appendChild(card);
+            });
+
+            // Add fade-in effect
+            setTimeout(() => {
+                shuffledCards.forEach((card) => {
+                    card.classList.add("fade-in");
+                });
+            }, 50); // Small delay to trigger the fade-in
+        }, 1000); // Match the fade-out duration (1 second)
+    }
+
+    // Shuffle the cards every 3 seconds
+    setInterval(shuffleCards, 3000);
+});
 </script>
 
 </body>
