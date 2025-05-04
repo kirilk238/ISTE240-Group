@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, inital-scale=1.0"/>
+    <title>Ethics & Privacy | LLM Survival Guide</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Roboto&display=swap" rel="stylesheet">
+
+    <header>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="learn.html">Learn</a></li>
+                <li><a href="demos.html">Demos</a></li>
+                <li><a href="ethics.html">Ethics</a></li>
+                <li><a href="quiz.html">Quiz</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <style>
+
+
+
+        body{
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            background: #fff;
+            color: #1a1a1a;
+
+        }
+
+        header{
+            position: relative;
+            height: 60vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        header video{
+            position: absolute;
+            top: 0;
+            left: 0;
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        header h1{
+            font-family: 'Poppins', sans-serif;
+            font-size: 3rem;
+            color: white;
+            background: rgba(red, green, blue, alpha);
+            padding: 1rem 2rem;
+            border-radius: 12px;
+
+        }
+
+        .section{
+            max-width: 1000px;
+            margin: 2rem auto;
+            background: #f4f4f4;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(red, green, blue, alpha);
+
+        }
+
+        h2{
+            font-family: 'Poppins', sans-serif;
+            color: #0057D9;
+        }
+
+        .case-buttons button{
+            padding: 0.6rem 1.2rem;
+            margin: 10px 10px 0 0 ;
+            background-color: #0073e6;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .feedback{
+            margin-top: 1rem;
+            padding: 1rem;
+            background: white;
+            border-left: 4px solid #00c853;
+            display: none;
+        }
+
+        ul.checklist{
+            padding-left: 1.5rem;
+        }
+
+        ul.checklist li{
+            margin: 0.75rem 0;
+            line-height: 1.5;
+        }
+
+        .milestone{
+            background: #fff;
+            padding: 1rem;
+            margin-top: 1rem;
+            border-left: 5px solid #6200ea;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .milestone .details{
+            display: none;
+            padding-top: 0.5rem;
+        }
+
+        .milestone.active details{
+            display: block;
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        @keyframes fadeIn{
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <video autoplay muted loop>
+        <source src="videos/network.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+        </video>
+        <h1>Ethics & Privacy in AI</h1>
+    </header>
+
+    <div class="section">
+        <h2>Why Ethics in AI matters</h2>
+        <p>AI systems impact hiring, healthcare, justice, and more. Without transparency and accountability, they can reinforce discrimination, leak private data, or be misused.</p>
+
+    </div>
+
+    <div class="section">
+        <h2>Case Study: Should AI decide who gets hired?</h2>
+        <p>Imagine a company uses an LLM to screen job applicants. Would you support this?</p>
+        <div class="case-buttons">
+            <button onclick="respond('yes')">Yes</button>
+            <button onclick="respond('no')">No</button>
+        </div>
+        <div id="case-feedback" class="feedback"></div>
+    </div>
+
+    <div class="section">
+        <h2>Responsible AI Checklist</h2>
+        <ul class="checklist">
+            <li>Is the training data anonymized and secure?</li>
+            <li>Has the system been tested for bias?</li>
+            <li>Is there human oversight on decisions?</li>
+            <li>Are users informed about limitations?</li>
+            <li>Are results explainable and transparent?</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Timeline: Ethics Milestones in AI</h2>
+        <p>Click a year to explore a key event in AI ethics history.</p>
+
+        <div class="milestone" onclick="toggleMilestone(this)">
+            <strong>2016: ProRepublica report</strong>
+            <div class="details">
+                <p>Exposed racial bias in COMPAS, an algorithm used in court sentencing. Sparked public outcry over algorithmic fairness.</p>
+            </div>
+        </div>
+
+        <div class="milestone" onclick="toggleMilestone(this)">
+            <strong>2021: Google AI Ethics Firing</strong>
+            <div class="details">
+                <p>Controversial dismissal of AI researchers raised questions about corporate control over ethical AI research.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function respond(answer){
+            const feedback = document.getElementById("case-feedback");
+            feedback.style.display = "block";
+            if(answer === 'yes'){
+                feedback.innerHTML = "Interesting choice. While automation increases efficiency, it must be balanced with fairness, transparency, and human checks";
+
+            }else{
+                feedback.innerHTML = "Smart move. AI-based hiring can unintentionally amplify existing biases if not carefully monitored.";
+            }
+
+        }
+        function toggleMilestone(element){
+            element.classList.toggle("active");
+        }
+    </script>
+</body>
+</html>
